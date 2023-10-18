@@ -1,5 +1,5 @@
 let assetPrefix = ""
-let basePath = "/"
+let basePath = ""
 
 if (process.env.GITHUB_ACTIONS) {
   const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, "")
@@ -11,7 +11,7 @@ if (process.env.GITHUB_ACTIONS) {
 const nextConfig = {
   output: "export",
   assetPrefix,
-  basePath,
+  basePath: basePath,
 }
 
 module.exports = nextConfig
