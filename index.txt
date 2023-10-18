@@ -1,6 +1,6 @@
 1:HL["/hci-2023_gli-HCl/_next/static/media/c9a5bc6a7c948fb0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 2:HL["/hci-2023_gli-HCl/_next/static/css/5f6d2b1838a498b2.css","style",{"crossOrigin":""}]
-0:["s72T0vP2krW6Vb7hMdL-W",[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],"$L3",[[["$","link","0",{"rel":"stylesheet","href":"/hci-2023_gli-HCl/_next/static/css/5f6d2b1838a498b2.css","precedence":"next","crossOrigin":""}]],"$L4"]]]]
+0:["7oCol5xzH7kwg2XRJzz2T",[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],"$L3",[[["$","link","0",{"rel":"stylesheet","href":"/hci-2023_gli-HCl/_next/static/css/5f6d2b1838a498b2.css","precedence":"next","crossOrigin":""}]],"$L4"]]]]
 5:HL["/hci-2023_gli-HCl/_next/static/css/b43705f17b8302ba.css","style",{"crossOrigin":""}]
 6:I[6814,[],""]
 7:I[4909,[],""]
