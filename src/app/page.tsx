@@ -1,5 +1,6 @@
 import fs from "fs/promises"
 import path from "path"
+import Link from "next/link"
 import styles from "./page.module.scss"
 
 const dir = path.join(process.cwd(), "public", "consegne")
@@ -36,7 +37,7 @@ export default async function Home() {
           <h2>PDF Consegne</h2>
           {files.map(file => (
             <div key={file}>
-              <a href={`/consegne/${file}`}>Consegna {file}</a>
+              <Link href={`/consegne/${file}`}>Consegna {file}</Link>
             </div>
           ))}
         </div>
