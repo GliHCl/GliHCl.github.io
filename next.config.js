@@ -10,7 +10,7 @@ if (process.env.GITHUB_ACTIONS) {
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
-  assetPrefix,
+  assetPrefix: assetPrefix,
   basePath: basePath,
 }
 

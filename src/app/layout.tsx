@@ -1,7 +1,12 @@
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Inter, Poppins } from "next/font/google"
 import "./globals.css"
 
+const poppins = Poppins({
+  weight: "700",
+  subsets: ["latin"],
+  variable: "--font-poppins",
+})
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
@@ -16,7 +21,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className + " " + poppins.variable}>
+        {children}
+      </body>
     </html>
   )
 }
