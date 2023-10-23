@@ -18,11 +18,10 @@ export default async function Home() {
             alignItems: "center",
             justifyContent: "center",
             width: "100%",
-            margin: "36px 0",
           }}
         >
           <h1 id={styles.hcl}>Gli HCl</h1>
-          <p>non è un i è un l minuscola</p>
+          <i style={{ fontSize: "0.9rem" }}>Non è una i, è una L minuscola</i>
         </div>
 
         <div
@@ -32,9 +31,41 @@ export default async function Home() {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
+            width: "100%",
+            margin: "36px 0",
+            textAlign: "center",
+            fontSize: "1.2rem",
           }}
         >
-          <h2>PDF Consegne</h2>
+          <h1 style={{ fontSize: "2.8em" }}>eVia</h1>
+          <h3 style={{ fontStyle: "italic" }}>
+            Erasmus Virtual Intelligent Assistant
+          </h3>
+          <h4 style={{ marginBottom: 8 }}>
+            Il tuo assistente Erasmus personale
+          </h4>
+          <p>
+            Il dominio di interesse del progetto è il programma Erasmus e i
+            progetti di mobilit&agrave; internazionale. Con l&apos;intento di
+            aiutare gli studenti in procinto di partire o appena arrivati,
+            abbiamo identificato diverse problematiche durante il processo, in
+            particolar modo quelle riguardanti la raccolta delle informazioni,
+            la scelta dei corsi convalidabili, la ricerca dell&apos;alloggio, i
+            rapporti sociali, ecc.
+          </p>
+        </div>
+
+        <div
+          className={styles.card}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 4,
+          }}
+        >
+          <h1>PDF Consegne</h1>
           {files.map(file => (
             <div key={file}>
               <Link href={`/consegne/${file}`}>Consegna {file}</Link>

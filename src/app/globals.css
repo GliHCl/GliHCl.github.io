@@ -9,12 +9,12 @@
   --background-start-rgb: 0, 0, 0;
   --background-end-rgb: 0, 0, 0;
 
-  --primary-glow: radial-gradient(#c22d64d0, rgba(1, 65, 255, 0));
+  --primary-glow: radial-gradient(#d40f64d0, rgba(1, 65, 255, 0));
   --secondary-glow: linear-gradient(
     to bottom right,
     rgba(1, 65, 255, 0),
     rgba(1, 65, 255, 0),
-    #3e8cd6d0
+    #008edcd0
   );
 
   --tile-start-rgb: 2, 13, 46;
@@ -33,6 +33,10 @@
   --callout-border-rgb: 108, 108, 108;
   --card-rgb: 100, 100, 100;
   --card-border-rgb: 200, 200, 200;
+}
+
+::selection {
+  background: #c22d64;
 }
 
 h1,
@@ -65,8 +69,8 @@ body {
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+  color: #008edc;
+  text-decoration: underline dotted;
 }
 
 @media (prefers-color-scheme: dark) {
