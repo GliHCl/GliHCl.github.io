@@ -17,7 +17,9 @@ export const FeatureCard: FC<FeatureCardProps> = ({
   children,
 }) => {
   const [mobile, setMobile] = useState(
-    window.matchMedia("(max-width: 700px)").matches
+    typeof window !== "undefined" // just to avoid SSR errors
+      ? window.matchMedia("(max-width: 700px)").matches
+      : false
   )
 
   useEffect(() => {
