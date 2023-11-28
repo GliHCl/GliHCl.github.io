@@ -1,10 +1,12 @@
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6rem;
-  min-height: 100vh;
+  justify-content: center;
+  align-items: stretch;
+  position: relative;
+  padding: 0 16px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .code {
@@ -25,46 +27,29 @@
   background: rgba(var(--card-rgb), 0);
   border: 1px solid rgba(var(--card-border-rgb), 0);
   transition: background 200ms, border 200ms;
-}
+  font-size: 1.2;
+  text-align: center;
 
-.card span {
-  display: inline-block;
-  transition: transform 200ms;
-}
+  span {
+    display: inline-block;
+    transition: transform 200ms;
+  }
 
-.card h2 {
-  font-weight: 600;
-  margin-bottom: 0.7rem;
-}
+  h2 {
+    font-weight: 600;
+    margin-bottom: 0.7rem;
+  }
 
-.card p {
-  margin: 0;
-  opacity: 0.6;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  max-width: 80ch;
-}
-
-.center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  padding: 4rem 0;
-  max-width: 1000px;
-  margin: 0 auto;
-
-  h1#hcl {
-    font-family: var(--font-mono);
-    font-size: 5rem;
-    font-weight: 700;
+  p {
     margin: 0;
-    line-height: 1.2;
+    opacity: 0.6;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    max-width: 80ch;
   }
 }
 
-.center::before {
+.main::before {
   background: var(--secondary-glow);
   border-radius: 50%;
   width: 700px;
@@ -73,15 +58,15 @@
   z-index: -2;
 }
 
-.center::after {
+.main::after {
   background: var(--primary-glow);
   width: 380px;
   height: 300px;
   z-index: -1;
 }
 
-.center::before,
-.center::after {
+.main::before,
+.main::after {
   content: "";
   left: 50%;
   position: absolute;
@@ -97,16 +82,6 @@
   .card:hover {
     background: rgba(var(--card-rgb), 0.1);
     border: 1px solid rgba(var(--card-border-rgb), 0.15);
-  }
-
-  .card:hover span {
-    transform: translateX(4px);
-  }
-}
-
-@media (prefers-reduced-motion) {
-  .card:hover span {
-    transform: none;
   }
 }
 
@@ -201,14 +176,5 @@
 
   .logo {
     filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
-  }
-}
-
-@keyframes rotate {
-  from {
-    transform: rotate(360deg);
-  }
-  to {
-    transform: rotate(0deg);
   }
 }

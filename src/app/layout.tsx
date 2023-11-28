@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Inter, Poppins } from "next/font/google"
 import "./globals.css"
+import { Header } from "@/components/Header"
 
 const poppins = Poppins({
   weight: "700",
@@ -23,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className + " " + poppins.variable}>
+        <Header />
         {children}
       </body>
     </html>
