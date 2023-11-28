@@ -4,6 +4,7 @@ import { MemberGrid } from "@/components/MemberGrid"
 import { Separator } from "@/components/Separator"
 import { Consegne } from "@/components/Consegne"
 import { FeatureCard } from "@/components/FeatureCard"
+import Link from "next/link"
 
 export default async function Home() {
   return (
@@ -64,7 +65,21 @@ export default async function Home() {
           Maecenas convallis vel nisl id interdum.
         </p>
       </FeatureCard>
-
+      <Link
+        style={{
+          color: "white",
+          padding: "16px 32px",
+          alignSelf: "center",
+          borderRadius: 16,
+          margin: "16px 0",
+          backgroundColor: "#008edc",
+        }}
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.figma.com/proto/KyAsNh9oEwxYI38O9iSdKo/MediumFi-Prototype?node-id=3-22&starting-point-node-id=3%3A22&mode=design&t=IKHV6XWSyobX1iF3-1"
+      >
+        Prova il prototipo su Figma
+      </Link>
       <Consegne />
       <Separator />
       <div
