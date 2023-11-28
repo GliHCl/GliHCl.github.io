@@ -52,26 +52,55 @@
 .main::before {
   background: var(--secondary-glow);
   border-radius: 50%;
-  width: 700px;
-  height: 500px;
-  margin-left: -600px;
+  width: 900px;
+  height: 600px;
+  margin-left: -200px;
   z-index: -2;
+  animation: slidearound 23s ease-in-out infinite;
 }
 
 .main::after {
   background: var(--primary-glow);
-  width: 380px;
-  height: 300px;
+  width: 480px;
+  height: 350px;
+  margin-left: 150px;
   z-index: -1;
+  animation: slidearound 17s ease-in-out infinite;
 }
 
 .main::before,
 .main::after {
   content: "";
   left: 50%;
-  position: absolute;
-  filter: blur(45px);
-  transform: translateZ(0);
+  top: 50%;
+  position: fixed;
+  filter: brightness(0.5) blur(45px);
+  transform: translate(-50%, -50%) translateZ(0);
+
+  @media (prefers-reduced-motion) {
+    & {
+      animation: none;
+    }
+  }
+}
+
+// animate both the vertical and horizontal animations at the same time at different speeds
+@keyframes slidearound {
+  0% {
+    transform: translate(calc(-50% - 100px), calc(-50% + 80px)) translateZ(0);
+  }
+  25% {
+    transform: translate(calc(-50% - 80px), calc(-50% - 80px)) translateZ(0);
+  }
+  50% {
+    transform: translate(calc(-50% + 120px), calc(-50% - 100px)) translateZ(0);
+  }
+  75% {
+    transform: translate(calc(-50% + 80px), calc(-50% + 50px)) translateZ(0);
+  }
+  100% {
+    transform: translate(calc(-50% - 100px), calc(-50% + 80px)) translateZ(0);
+  }
 }
 
 .logo {
