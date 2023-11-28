@@ -63,7 +63,7 @@ export default async function Home() {
         alla conoscenza approfondita dei documenti, esso può effettuare 
         ricerche rapide e precise per trovare le informazioni richieste dagli 
         studenti. eVia è disponibile 24/7, offrendo un accesso continuo alle informazioni, 
-        indipendentemente dall'orario o dalla collocazione geografica.
+        indipendentemente dall&apos;orario o dalla collocazione geografica.
         Gli studenti possono usare eVia in modo intuitivo e user-friendly, ottenendo
         risposte senza la necessità di navigare attraverso diverse pagine web o documenti.
         </p>
