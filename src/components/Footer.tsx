@@ -19,7 +19,7 @@ export const Footer: FC = () => {
       }}
     >
       <span>&copy; 2023 - Gli HCl</span>
-      <span>all rights reserved</span>
+      <span>All rights reserved</span>
     </footer>
   )
 }

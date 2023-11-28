@@ -22,14 +22,14 @@ export default async function Home() {
           fontSize: "1.2rem",
         }}
       >
+        <h1 style={{ marginBottom: 8 }}>eVia</h1>
         <h3 style={{ fontStyle: "italic" }}>
           Erasmus Virtual Intelligent Assistant
         </h3>
         <h4 style={{ marginBottom: 8 }}>Il tuo assistente Erasmus personale</h4>
         <p>
-          Il dominio di interesse del progetto è il programma Erasmus e i
-          progetti di mobilit&agrave; internazionale. Con l&apos;intento di
-          aiutare gli studenti in procinto di partire o appena arrivati, abbiamo
+          <b>Vorresti partire in Erasmus ma non sai nemmeno dove iniziare a informarti?</b><br />
+          Con l&apos;intento di aiutare gli studenti in procinto di partire o appena arrivati, abbiamo
           identificato diverse problematiche durante il processo, in particolar
           modo quelle riguardanti la raccolta delle informazioni, la scelta dei
           corsi convalidabili, la ricerca dell&apos;alloggio, i rapporti
@@ -53,37 +53,55 @@ export default async function Home() {
 
       <FeatureCard
         title="Risposte immediate e accurate"
-        image="/placeholder.jpg"
+        image="/feature1.jpg"
       >
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod
-          placerat fringilla. Class aptent taciti sociosqu ad litora torquent
-          per conubia nostra, per inceptos himenaeos. Ut mattis semper
-          consequat. Ut sapien risus, venenatis in suscipit in, aliquam vel
-          diam. Aenean mollis magna metus, eu rhoncus massa suscipit vel.
-          Aliquam interdum eu dolor eu feugiat. Aenean eu metus ullamcorper,
-          rutrum ante sit amet, tempor sapien. Aliquam erat volutpat. Cras
-          condimentum enim ac ornare porta. Sed tristique lacinia ipsum, vitae
-          ultricies arcu feugiat id. Proin eget odio id odio posuere aliquet.
-          Maecenas convallis vel nisl id interdum.
+        Il ChatBot ha accesso a una vasta gamma di documenti ufficiali e altre
+        risorse pertinenti che forniscono informazioni dettagliate e 
+        aggiornate sulle varie fasi del programma Erasmus.
+        Grazie alla sua capacità di elaborazione del linguaggio naturale e
+        alla conoscenza approfondita dei documenti, esso può effettuare 
+        ricerche rapide e precise per trovare le informazioni richieste dagli 
+        studenti. eVia è disponibile 24/7, offrendo un accesso continuo alle informazioni, 
+        indipendentemente dall'orario o dalla collocazione geografica.
+        Gli studenti possono usare eVia in modo intuitivo e user-friendly, ottenendo
+        risposte senza la necessità di navigare attraverso diverse pagine web o documenti.
         </p>
       </FeatureCard>
       <FeatureCard
         title="Fonti e feedback degli utenti"
-        image="/placeholder.jpg"
+        image="/feature2.jpg"
         inverted
       >
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod
-          placerat fringilla. Class aptent taciti sociosqu ad litora torquent
-          per conubia nostra, per inceptos himenaeos. Ut mattis semper
-          consequat. Ut sapien risus, venenatis in suscipit in, aliquam vel
-          diam. Aenean mollis magna metus, eu rhoncus massa suscipit vel.
-          Aliquam interdum eu dolor eu feugiat. Aenean eu metus ullamcorper,
-          rutrum ante sit amet, tempor sapien. Aliquam erat volutpat. Cras
-          condimentum enim ac ornare porta. Sed tristique lacinia ipsum, vitae
-          ultricies arcu feugiat id. Proin eget odio id odio posuere aliquet.
-          Maecenas convallis vel nisl id interdum.
+        Per le risposte eVia non si basa solo su documenti ufficiali, ma integra 
+        anche un sistema di feedback degli utenti e citazioni da fonti affidabili.
+        Il sistema di feedback permette agli utenti di segnalare eventuali lacune o errori 
+        nelle risposte oppure fornire commenti sulla chiarezza delle informazioni.
+        Ogni volta che il ChatBot fornisce una risposta, può citare la fonte specifica
+        dei documenti ufficiali da cui ha ottenuto le informazioni; questo aumenta la 
+        trasparenza e la fiducia degli utenti nella validità delle risposte.
+        Le citazioni dalle fonti ufficiali consentono agli utenti di verificare direttamente
+        le informazioni fornite dal ChatBot, incoraggiando una comprensione più approfondita
+        e una verifica incrociata.
+        </p>
+      </FeatureCard>
+      <FeatureCard
+        title="Conversazioni recenti"
+        image="/feature3.jpg"
+      >
+        <p>
+        Il nostro ChatBot è arricchito dalla funzionalità di mantenere una storia delle 
+        conversazioni passate degli utenti.
+        Gli utenti possono riprendere le conversazioni esattamente da dove si sono interrotte,
+        consentendo una continuità e facilitando il recupero di informazioni già discusse. 
+        Il ChatBot utilizza la storia delle conversazioni per comprendere meglio il contesto
+        attuale, garantendo risposte più pertinenti e personalizzate in base alle interazioni
+        precedenti, inoltre se un utente presenta un problema che richiede più passaggi per
+        la risoluzione, il chatbot può seguire la conversazione passo dopo passo, offrendo
+        soluzioni in modo graduale e guidato. La storia delle conversazioni consente anche di
+         fornire feedback specifico su risposte passate, contribuendo a migliorare
+        progressivamente la qualità del servizio.
         </p>
       </FeatureCard>
       <Consegne />
@@ -113,12 +131,12 @@ export default async function Home() {
       </div>
       <MemberGrid
         members={[
-          { name: "Andrea Gollo", tgHandle: "Andrea31200" },
-          { name: "Francesco Martellosio", tgHandle: "FrancescoMartellosio" },
-          { name: "Tommaso Morganti", tgHandle: "toto04_1" },
-          { name: "Lorenzo Simone", tgHandle: "LorenzoS2" },
-          { name: "Bin Xu", tgHandle: "white_xb" },
-          { name: "Xuwen Ye", tgHandle: "xuwen_bubb" },
+          { name: "Andrea Gollo", tgHandle: "Andrea31200", image: "/andrea.jpg" },
+          { name: "Francesco Martellosio", tgHandle: "FrancescoMartellosio", image: "/francesco.jpg"  },
+          { name: "Tommaso Morganti", tgHandle: "toto04_1", image: "/tommaso.jpg"},
+          { name: "Lorenzo Simone", tgHandle: "LorenzoS2", image: "/lorenzo.jpg"},
+          { name: "Bin Xu", tgHandle: "white_xb", image: "/bin.jpg" },
+          { name: "Xuwen Ye", tgHandle: "xuwen_bubb", image: "/xuwen.jpg" },
         ]}
       />
       <VoiceFlowHydration />

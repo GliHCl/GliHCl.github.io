@@ -49,8 +49,8 @@ export const FeatureCard: FC<FeatureCardProps> = ({
           display: "flex",
           flex: 4,
           flexDirection: "column",
-          alignItems: mobile ? "center" : inverted ? "flex-end" : "flex-start",
-          textAlign: mobile ? "center" : inverted ? "right" : "left",
+          alignItems: "center",
+          textAlign: "center",
           width: "calc(100% - 32px)",
           margin: 16,
           borderRadius: 16,
@@ -63,8 +63,8 @@ export const FeatureCard: FC<FeatureCardProps> = ({
         <Image
           src={image}
           alt={title}
-          width={200}
-          height={350}
+          width={100}
+          height={360}
           style={{
             flex: 3,
             width: "calc(100% - 32px)",

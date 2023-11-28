@@ -24,7 +24,7 @@ export const Header: FC = () => {
           margin: 0,
         }}
       >
-        eVia
+        Gli HCl
       </h1>
       <span style={{ fontSize: "0.9rem" }}>Non è una i, è una L minuscola</span>
     </header>
