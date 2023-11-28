@@ -48,7 +48,7 @@ export const FeatureCard: FC<FeatureCardProps> = ({
           src={image}
           alt={title}
           width={200}
-          height={400}
+          height={350}
           style={{
             flex: 1,
             borderRadius: 16,
