@@ -1,5 +1,6 @@
+"use client"
 import Image from "next/image"
-import { FC } from "react"
+import { FC, useEffect, useState } from "react"
 import pageStyle from "@/app/page.module.scss"
 
 export interface FeatureCardProps {
@@ -15,14 +16,28 @@ export const FeatureCard: FC<FeatureCardProps> = ({
   inverted,
   children,
 }) => {
+  const [mobile, setMobile] = useState(
+    window.matchMedia("(max-width: 700px)").matches
+  )
+
+  useEffect(() => {
+    const listener = () => {
+      setMobile(window.matchMedia("(max-width: 700px)").matches)
+    }
+    window.addEventListener("resize", listener)
+    return () => window.removeEventListener("resize", listener)
+  }, [])
+
   return (
     <div
       className={pageStyle.card}
       style={{
         display: "flex",
-        flexDirection: inverted ? "row-reverse" : "row",
-        alignItems: "center",
+        flexDirection: mobile ? "column" : inverted ? "row-reverse" : "row",
+        alignItems: "stretch",
         justifyContent: "stretch",
+        padding: 16,
+        boxSizing: "border-box",
         width: "100%",
         margin: "16px 0",
       }}
@@ -30,12 +45,11 @@ export const FeatureCard: FC<FeatureCardProps> = ({
       <div
         style={{
           display: "flex",
-          flex: 2,
+          flex: 1,
           flexDirection: "column",
-          alignItems: inverted ? "flex-end" : "flex-start",
-          textAlign: inverted ? "right" : "left",
-          width: "100%",
-          maxWidth: 400,
+          alignItems: mobile ? "center" : inverted ? "flex-end" : "flex-start",
+          textAlign: mobile ? "center" : inverted ? "right" : "left",
+          width: "calc(100% - 32px)",
           margin: 16,
           borderRadius: 16,
         }}
@@ -51,9 +65,11 @@ export const FeatureCard: FC<FeatureCardProps> = ({
           height={350}
           style={{
             flex: 1,
+            width: "calc(100% - 32px)",
             borderRadius: 16,
             objectFit: "cover",
             objectPosition: "center",
+            boxSizing: "border-box",
             margin: 16,
           }}
         />
