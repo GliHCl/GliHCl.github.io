@@ -1,10 +1,10 @@
 import styles from "./page.module.scss"
-import Image from "next/image"
 import { MemberGrid } from "@/components/MemberGrid"
 import { Separator } from "@/components/Separator"
 import { Consegne } from "@/components/Consegne"
 import { FeatureCard } from "@/components/FeatureCard"
 import Link from "next/link"
+import { VoiceFlowHydration } from "@/components/VoiceFlowHydration"
 
 export default async function Home() {
   return (
@@ -36,42 +36,12 @@ export default async function Home() {
           sociali, ecc.
         </p>
       </div>
-
-      <FeatureCard title="Feature stupenda" image="/placeholder.jpg">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod
-          placerat fringilla. Class aptent taciti sociosqu ad litora torquent
-          per conubia nostra, per inceptos himenaeos. Ut mattis semper
-          consequat. Ut sapien risus, venenatis in suscipit in, aliquam vel
-          diam. Aenean mollis magna metus, eu rhoncus massa suscipit vel.
-          Aliquam interdum eu dolor eu feugiat. Aenean eu metus ullamcorper,
-          rutrum ante sit amet, tempor sapien. Aliquam erat volutpat. Cras
-          condimentum enim ac ornare porta. Sed tristique lacinia ipsum, vitae
-          ultricies arcu feugiat id. Proin eget odio id odio posuere aliquet.
-          Maecenas convallis vel nisl id interdum.
-        </p>
-      </FeatureCard>
-      <FeatureCard title="Feature stupenda" image="/placeholder.jpg" inverted>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod
-          placerat fringilla. Class aptent taciti sociosqu ad litora torquent
-          per conubia nostra, per inceptos himenaeos. Ut mattis semper
-          consequat. Ut sapien risus, venenatis in suscipit in, aliquam vel
-          diam. Aenean mollis magna metus, eu rhoncus massa suscipit vel.
-          Aliquam interdum eu dolor eu feugiat. Aenean eu metus ullamcorper,
-          rutrum ante sit amet, tempor sapien. Aliquam erat volutpat. Cras
-          condimentum enim ac ornare porta. Sed tristique lacinia ipsum, vitae
-          ultricies arcu feugiat id. Proin eget odio id odio posuere aliquet.
-          Maecenas convallis vel nisl id interdum.
-        </p>
-      </FeatureCard>
       <Link
         style={{
           color: "white",
           padding: "16px 32px",
           alignSelf: "center",
           borderRadius: 16,
-          margin: "16px 0",
           backgroundColor: "#008edc",
         }}
         target="_blank"
@@ -80,6 +50,42 @@ export default async function Home() {
       >
         Prova il prototipo su Figma
       </Link>
+
+      <FeatureCard
+        title="Risposte immediate e accurate"
+        image="/placeholder.jpg"
+      >
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod
+          placerat fringilla. Class aptent taciti sociosqu ad litora torquent
+          per conubia nostra, per inceptos himenaeos. Ut mattis semper
+          consequat. Ut sapien risus, venenatis in suscipit in, aliquam vel
+          diam. Aenean mollis magna metus, eu rhoncus massa suscipit vel.
+          Aliquam interdum eu dolor eu feugiat. Aenean eu metus ullamcorper,
+          rutrum ante sit amet, tempor sapien. Aliquam erat volutpat. Cras
+          condimentum enim ac ornare porta. Sed tristique lacinia ipsum, vitae
+          ultricies arcu feugiat id. Proin eget odio id odio posuere aliquet.
+          Maecenas convallis vel nisl id interdum.
+        </p>
+      </FeatureCard>
+      <FeatureCard
+        title="Fonti e feedback degli utenti"
+        image="/placeholder.jpg"
+        inverted
+      >
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod
+          placerat fringilla. Class aptent taciti sociosqu ad litora torquent
+          per conubia nostra, per inceptos himenaeos. Ut mattis semper
+          consequat. Ut sapien risus, venenatis in suscipit in, aliquam vel
+          diam. Aenean mollis magna metus, eu rhoncus massa suscipit vel.
+          Aliquam interdum eu dolor eu feugiat. Aenean eu metus ullamcorper,
+          rutrum ante sit amet, tempor sapien. Aliquam erat volutpat. Cras
+          condimentum enim ac ornare porta. Sed tristique lacinia ipsum, vitae
+          ultricies arcu feugiat id. Proin eget odio id odio posuere aliquet.
+          Maecenas convallis vel nisl id interdum.
+        </p>
+      </FeatureCard>
       <Consegne />
       <Separator />
       <div
@@ -93,15 +99,16 @@ export default async function Home() {
           padding: 16,
         }}
       >
-        <h3>Il nostro obiettivo</h3>
+        <h2>Il nostro obiettivo</h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-          voluptate, quod doloribus, quos, quas voluptatem quibusdam
-          reprehenderit voluptatum quae consequatur iusto? Quisquam voluptate,
-          quod doloribus, quos, quas voluptatem quibusdam reprehenderit
-          voluptatum quae consequatur iusto? Quisquam voluptate, quod doloribus,
-          quos, quas voluptatem quibusdam reprehenderit voluptatum quae
-          consequatur iusto? Quisquam voluptate, quod doloribus, quos, quas
+          Vorremmo proporre un assistente virtuale, allenato su documentazione
+          specifica, dove condividere e trovare facilmente le informazioni
+          necessarie e che sia in grado di facilitare le procedure di
+          applicazione e ammissione. Questa scelta implementativa deriva dalla
+          necessità dell&apos;utente di ottenere una risposta rapida, corretta e
+          di facile comprensione, facendo diventare di fatto la conversazione
+          piacevole e eventualmente personalizzare le risposte del ChatBot per
+          renderlo il più simile possibile ad un utente umano.
         </p>
       </div>
       <MemberGrid
@@ -114,6 +121,7 @@ export default async function Home() {
           { name: "Xuwen Ye", tgHandle: "xuwen_bubb" },
         ]}
       />
+      <VoiceFlowHydration />
     </main>
   )
 }

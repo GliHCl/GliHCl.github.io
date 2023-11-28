@@ -47,7 +47,7 @@ export const FeatureCard: FC<FeatureCardProps> = ({
       <div
         style={{
           display: "flex",
-          flex: 1,
+          flex: 4,
           flexDirection: "column",
           alignItems: mobile ? "center" : inverted ? "flex-end" : "flex-start",
           textAlign: mobile ? "center" : inverted ? "right" : "left",
@@ -66,7 +66,7 @@ export const FeatureCard: FC<FeatureCardProps> = ({
           width={200}
           height={350}
           style={{
-            flex: 1,
+            flex: 3,
             width: "calc(100% - 32px)",
             borderRadius: 16,
             objectFit: "cover",
