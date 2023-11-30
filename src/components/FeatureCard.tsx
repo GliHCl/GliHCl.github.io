@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image"
-import { FC, useEffect, useState } from "react"
+import { FC, useEffect, useMemo, useState } from "react"
 import pageStyle from "@/app/page.module.scss"
 
 export interface FeatureCardProps {
@@ -16,16 +16,13 @@ export const FeatureCard: FC<FeatureCardProps> = ({
   inverted,
   children,
 }) => {
-  const [mobile, setMobile] = useState(
-    typeof window !== "undefined" // just to avoid SSR errors
-      ? window.matchMedia("(max-width: 700px)").matches
-      : false
-  )
+  const [mobile, setMobile] = useState(false)
 
   useEffect(() => {
     const listener = () => {
       setMobile(window.matchMedia("(max-width: 700px)").matches)
     }
+    listener()
     window.addEventListener("resize", listener)
     return () => window.removeEventListener("resize", listener)
   }, [])
@@ -36,7 +33,7 @@ export const FeatureCard: FC<FeatureCardProps> = ({
       style={{
         display: "flex",
         flexDirection: mobile ? "column" : inverted ? "row-reverse" : "row",
-        alignItems: "stretch",
+        alignItems: "center",
         justifyContent: "stretch",
         padding: 16,
         boxSizing: "border-box",

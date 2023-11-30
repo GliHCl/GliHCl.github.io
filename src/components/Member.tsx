@@ -18,7 +18,7 @@ export const Member: FC<MemberProps> = ({ name, image, tgHandle }) => {
         flexDirection: "column",
         alignItems: "center",
         width: "100%",
-        maxWidth: 200,
+        maxWidth: 300,
         margin: "16px 32px",
         padding: "16px 0",
         borderRadius: 16,
