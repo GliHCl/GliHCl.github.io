@@ -4,6 +4,8 @@ import Link from "next/link"
 import { FC } from "react"
 import { IoArrowForward } from "react-icons/io5"
 
+import questions from "@/mock/questions.json"
+
 const EviaHome: FC = () => {
   return (
     <div
@@ -28,18 +30,13 @@ const EviaHome: FC = () => {
           gap: 16,
         }}
       >
-        <QuestionHomePreview
-          title="Come posso accedere al progetto Erasmus+?"
-          body="Per poter partecipare al progetto Erasmus+ occorre possedere requisiti precisi; per prima cosa è necessar..."
-        />
-        <QuestionHomePreview
-          title="Quanto costa un’esperienza Erasmus?"
-          body="Una volta selezionati per il progetto Erasmus, allo studente è garantita una borsa di mobilità, con un importo mensile che varia a seconda d..."
-        />
-        <QuestionHomePreview
-          title="Quali esami posso scegliere?"
-          body="È possibile richiedere il riconoscimento di esperienze adeguatamente autorizzate (prima della partenza) che siano convalidate, restando il vincolo che nel corso..."
-        />
+        {questions.slice(0, 3).map((question, index) => (
+          <QuestionHomePreview
+            key={index}
+            title={question.title}
+            body={question.body}
+          />
+        ))}
         <Link
           style={{
             display: "flex",
@@ -52,7 +49,7 @@ const EviaHome: FC = () => {
             fontSize: 16,
             gap: 8,
           }}
-          href={"#"}
+          href={"/evia/discover"}
         >
           <IoArrowForward
             style={{

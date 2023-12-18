@@ -26,7 +26,9 @@ export const NavBar: FC = () => {
           padding: 16,
         }}
       >
-        <h1 style={{ fontSize: 32 }}>eVia</h1>
+        <Link style={{ color: "white", textDecoration: "none" }} href={"/evia"}>
+          <h1 style={{ fontSize: 32 }}>eVia</h1>
+        </Link>
         <Link
           style={{
             color: "white",

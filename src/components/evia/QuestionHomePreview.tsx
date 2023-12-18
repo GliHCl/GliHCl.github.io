@@ -3,13 +3,13 @@ import Image from "next/image"
 import { FC } from "react"
 import Link from "next/link"
 
-interface QuestionHomePreviewProps {
+export interface QuestionProps {
   title: string
   body: string
   image?: string
 }
 
-export const QuestionHomePreview: FC<QuestionHomePreviewProps> = props => {
+export const QuestionHomePreview: FC<QuestionProps> = props => {
   return (
     <Link
       style={{
