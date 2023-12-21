@@ -1,7 +1,7 @@
 import { FC } from "react"
 
 import questions from "@/mock/questions.json"
-import { QuestionDiscovery } from "@/components/evia/QuestionDiscovery"
+import { QuestionDiscovery } from "./QuestionDiscovery"
 
 const EviaDiscover: FC = () => {
   return (

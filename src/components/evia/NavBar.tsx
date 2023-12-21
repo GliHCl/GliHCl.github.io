@@ -37,7 +37,7 @@ export const NavBar: FC = () => {
             borderRadius: 12,
             backgroundColor: "#008edc",
           }}
-          href={"#"}
+          href={"/evia/feedback"}
         >
           Raccontaci la tua esperienza
         </Link>

@@ -1,5 +1,5 @@
 import { FC } from "react"
-import { QuestionProps } from "./QuestionHomePreview"
+import { QuestionProps } from "@/components/evia/QuestionHomePreview"
 import Image from "next/image"
 import Link from "next/link"
 

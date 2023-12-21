@@ -11,14 +11,19 @@ export default function EviaLayout({
         display: "flex",
         flexDirection: "row",
         justifyContent: "center",
-        flex: "1 0 auto",
-        width: "100%",
+        width: "100vw",
+        flex: "1 1 auto",
+        overflow: "hidden",
       }}
     >
       <NavBar />
       <div
         style={{
-          flex: "1 0 auto",
+          flex: "1 1 auto",
+          overflowX: "hidden",
+          overflowY: "auto",
+          padding: "0 12px",
+          boxSizing: "border-box",
         }}
       >
         {children}
