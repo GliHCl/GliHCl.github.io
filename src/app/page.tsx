@@ -4,7 +4,6 @@ import { Separator } from "@/components/Separator"
 import { Consegne } from "@/components/Consegne"
 import { FeatureCard } from "@/components/FeatureCard"
 import Link from "next/link"
-import { VoiceFlowHydration } from "@/components/VoiceFlowHydration"
 import { Header } from "@/components/Header"
 
 export default async function Home() {
@@ -164,7 +163,6 @@ export default async function Home() {
             { name: "Xuwen Ye", tgHandle: "xuwen_bubb", image: "/xuwen.jpg" },
           ]}
         />
-        <VoiceFlowHydration />
       </main>
     </>
   )

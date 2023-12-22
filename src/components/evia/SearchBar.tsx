@@ -1,7 +1,15 @@
-import { FC } from "react"
+"use client"
+import { FC, useState } from "react"
 import { IoArrowForward } from "react-icons/io5"
 
-export const SearchBar: FC = () => {
+export interface SearchBarProps {
+  style?: React.CSSProperties
+  onSearch?: (query: string) => void
+}
+
+export const SearchBar: FC<SearchBarProps> = props => {
+  const [query, setQuery] = useState("")
+
   return (
     <search
       style={{
@@ -14,6 +22,7 @@ export const SearchBar: FC = () => {
         maxWidth: 1000,
         boxSizing: "border-box",
         padding: "0 32px",
+        ...props.style,
       }}
     >
       <input
@@ -28,6 +37,13 @@ export const SearchBar: FC = () => {
           borderRadius: 12,
           padding: 12,
           fontSize: 16,
+        }}
+        value={query}
+        onChange={e => setQuery(e.target.value)}
+        onKeyDown={e => {
+          if (e.key === "Enter") {
+            props.onSearch?.(query)
+          }
         }}
       />
       <button
@@ -46,6 +62,7 @@ export const SearchBar: FC = () => {
           color: "white",
           padding: 8,
         }}
+        onClick={() => props.onSearch?.(query)}
       >
         <IoArrowForward
           style={{

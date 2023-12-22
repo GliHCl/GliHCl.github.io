@@ -33,7 +33,7 @@ export const Modal: FC<ModalProps> = props => {
           padding: 12,
           gap: 12,
           width: "100%",
-          maxWidth: 800,
+          maxWidth: 400,
           maxHeight: "100%",
           overflow: "auto",
           display: "flex",
