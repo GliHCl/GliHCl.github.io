@@ -1,4 +1,5 @@
 import { Modal } from "@/components/Modal"
+import { ProgressiveParagraph } from "@/components/ProgressiveParagraph"
 import Image from "next/image"
 import Link from "next/link"
 import { FC, useState } from "react"
@@ -45,7 +46,7 @@ export const ConversationBlock: FC<Message> = props => {
         }}
       >
         <h3>{props.question}</h3>
-        <p>{props.answer}</p>
+        <ProgressiveParagraph text={props.answer ?? ""} />
         <div
           style={{
             alignSelf: "flex-end",
