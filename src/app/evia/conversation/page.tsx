@@ -4,6 +4,7 @@ import { useSearchParams } from "next/navigation"
 import { ConversationBlock, Message, Source } from "./ConversationBlock"
 import { SearchBar } from "@/components/evia/SearchBar"
 import axios from "axios"
+import { getConvoFromID } from "@/utils/storage"
 
 type Trace =
   | {
@@ -27,11 +28,15 @@ type Trace =
 
 export interface Conversation {
   id: string
+  date: string
   messages: Array<Message>
 }
 
+export type Conversations = Array<Conversation>
+
 const EviaConversation: FC = () => {
   const searchParams = useSearchParams()
+  const query = decodeURIComponent(searchParams.get("q") ?? "")
   const id = searchParams.get("id")
 
   // if no id go to home
@@ -39,13 +44,32 @@ const EviaConversation: FC = () => {
     window.location.href = "/evia"
   }
 
-  const [conversation, setConversation] = useState<Conversation>({
-    id: id ?? "",
-    messages: [],
-  })
+  const [conversation, setConversation] = useState<Conversation>(
+    getConvoFromID(id ?? "")
+  )
+  useEffect(() => {
+    if (id) setConversation(getConvoFromID(id))
+  }, [id])
+
+  const [loading, setLoading] = useState(false)
 
   const converse = useCallback(
     async (payload: string) => {
+      if (loading) return
+      console.log("converse: ", payload)
+      setLoading(true)
+      // save the question in the conversation
+      setConversation({
+        ...conversation,
+        messages: [
+          ...conversation.messages,
+          {
+            question: payload,
+            sources: [],
+          },
+        ],
+      })
+
       // the actual API request
       // https://developer.voiceflow.com/reference/stateinteract-1
       const response = axios({
@@ -58,8 +82,6 @@ const EviaConversation: FC = () => {
         data: { action: { type: "text", payload } },
       })
       const { data }: { data: Array<Trace> } = await response
-
-      console.log("response: ", data)
 
       // filter all the traces to compose the text answer
       const answer = data
@@ -92,8 +114,9 @@ const EviaConversation: FC = () => {
 
       const newConversation = {
         ...conversation,
+        date: new Date().toISOString(), // update last modified
         messages: [
-          ...conversation.messages.filter(m => m.question !== payload),
+          ...conversation.messages,
           {
             question: payload,
             answer,
@@ -102,18 +125,27 @@ const EviaConversation: FC = () => {
         ],
       }
       setConversation(newConversation)
+      setLoading(false)
     },
-    [conversation]
+    [conversation, loading]
   )
 
   useEffect(() => {
-    if (id) {
-      const newConversation = JSON.parse(
-        window.localStorage.getItem(`conversation-${id}`) ?? "null"
-      )
-      if (newConversation) setConversation(newConversation)
+    if (!id) return
+    if (conversation.messages.length === 0 && query) {
+      console.log("no messages, conversing with query: ", query)
+      converse(query)
     }
-  }, [id])
+  }, [id, query, converse, conversation.messages.length])
+
+  useEffect(() => {
+    // save the conversation in the local storage
+    window.localStorage.setItem(
+      `conversation-${conversation.id}`,
+      JSON.stringify(conversation)
+    )
+    window.dispatchEvent(new StorageEvent("storage"))
+  }, [conversation])
 
   return (
     <div
@@ -135,20 +167,9 @@ const EviaConversation: FC = () => {
       ))}
       <SearchBar
         style={{ alignSelf: "flex-end", padding: 0 }}
-        onSearch={query => {
-          console.log("new question: ", query)
-          const newConversation = {
-            ...conversation,
-            messages: [
-              ...conversation.messages,
-              {
-                question: query,
-                sources: [],
-              },
-            ],
-          }
-          setConversation(newConversation)
-          converse(query)
+        onSearch={q => {
+          console.log("new question: ", q)
+          converse(q)
         }}
       />
     </div>

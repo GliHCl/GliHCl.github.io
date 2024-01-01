@@ -1,10 +1,24 @@
 "use client"
 import Link from "next/link"
-import { FC, useState } from "react"
+import { FC, useEffect, useState } from "react"
 import { IoChevronBack, IoChevronForward } from "react-icons/io5"
+import { Divider } from "./Divider"
+import { Conversations } from "@/app/evia/conversation/page"
+import { getConversations } from "@/utils/storage"
 
 export const NavBar: FC = () => {
   const [open, setOpen] = useState(true)
+  const [convos, setConvos] = useState<Conversations>(getConversations())
+
+  useEffect(() => {
+    // Update conversations on storage event
+    const listener = () => {
+      console.log("storage event! updating convos in navbar")
+      setConvos(getConversations())
+    }
+    window.addEventListener("storage", listener)
+    return () => window.removeEventListener("storage", listener)
+  }, [])
 
   return (
     <section
@@ -41,7 +55,7 @@ export const NavBar: FC = () => {
         >
           Raccontaci la tua esperienza
         </Link>
-        <h3>Conversazioni precedenti:</h3>
+        <h3 style={{ fontSize: 18 }}>Conversazioni precedenti:</h3>
         <div
           style={{
             flex: 1,
@@ -50,16 +64,24 @@ export const NavBar: FC = () => {
             alignItems: "stretch",
           }}
         >
-          <span
-            style={{
-              textAlign: "center",
-              opacity: 0.8,
-              fontSize: "0.9em",
-              margin: 16,
-            }}
-          >
-            non hai ancora avuto nessuna conversazione
-          </span>
+          <Divider title="Ieri" />
+          {convos.map((c, i) => (
+            <Link
+              key={i}
+              style={{
+                fontSize: 16,
+                color: "white",
+                textDecoration: "none",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
+                cursor: "pointer",
+              }}
+              href={`/evia/conversation?id=${c.id}`}
+            >
+              {c.messages[0].question}
+            </Link>
+          ))}
         </div>
       </div>
       <div

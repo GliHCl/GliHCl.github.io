@@ -1,3 +1,5 @@
+"use client"
+
 import { QuestionHomePreview } from "@/components/evia/QuestionHomePreview"
 import { SearchBar } from "@/components/evia/SearchBar"
 import Link from "next/link"
@@ -5,8 +7,11 @@ import { FC } from "react"
 import { IoArrowForward } from "react-icons/io5"
 
 import questions from "@/mock/questions.json"
+import { useRouter } from "next/navigation"
 
 const EviaHome: FC = () => {
+  const router = useRouter()
+
   return (
     <div
       style={{
@@ -21,7 +26,15 @@ const EviaHome: FC = () => {
       }}
     >
       <h1 style={{ fontSize: 70 }}>eVia</h1>
-      <SearchBar />
+      <SearchBar
+        onSearch={query => {
+          // generate UUID
+          let newID = Math.random().toString(36).substring(7)
+          router.push(
+            `/evia/conversation?id=${newID}&q=${encodeURIComponent(query)}`
+          )
+        }}
+      />
       <div
         style={{
           display: "flex",

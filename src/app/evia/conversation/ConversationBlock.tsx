@@ -15,7 +15,7 @@ export interface Message {
   question: string
   answer?: string
   sources: Array<Source>
-  userExtact?: {
+  userExtract?: {
     date: string
     author: string
     body: string
@@ -23,8 +23,6 @@ export interface Message {
 }
 
 export const ConversationBlock: FC<Message> = props => {
-  console.log("props: ", props)
-
   const [positiveFeedback, setPositiveFeedback] = useState(false)
   const [negativeFeedback, setNegativeFeedback] = useState(false)
 
