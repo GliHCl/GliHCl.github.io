@@ -1,5 +1,5 @@
 "use client"
-import { FC, useState } from "react"
+import { FC, useCallback, useState } from "react"
 import { IoArrowForward } from "react-icons/io5"
 
 export interface SearchBarProps {
@@ -7,8 +7,13 @@ export interface SearchBarProps {
   onSearch?: (query: string) => void
 }
 
-export const SearchBar: FC<SearchBarProps> = props => {
+export const SearchBar: FC<SearchBarProps> = ({ onSearch, style }) => {
   const [query, setQuery] = useState("")
+
+  const callback = useCallback(() => {
+    onSearch?.(query)
+    setQuery("")
+  }, [query, onSearch])
 
   return (
     <search
@@ -22,7 +27,7 @@ export const SearchBar: FC<SearchBarProps> = props => {
         maxWidth: 1000,
         boxSizing: "border-box",
         padding: "0 32px",
-        ...props.style,
+        ...style,
       }}
     >
       <input
@@ -41,9 +46,7 @@ export const SearchBar: FC<SearchBarProps> = props => {
         value={query}
         onChange={e => setQuery(e.target.value)}
         onKeyDown={e => {
-          if (e.key === "Enter") {
-            props.onSearch?.(query)
-          }
+          if (e.key === "Enter") callback()
         }}
       />
       <button
@@ -62,7 +65,7 @@ export const SearchBar: FC<SearchBarProps> = props => {
           color: "white",
           padding: 8,
         }}
-        onClick={() => props.onSearch?.(query)}
+        onClick={callback}
       >
         <IoArrowForward
           style={{
