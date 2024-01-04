@@ -162,8 +162,12 @@ const EviaConversation: FC = () => {
         gap: 16,
       }}
     >
-      {conversation.messages.map((message, index) => (
-        <ConversationBlock key={index} {...message} />
+      {conversation.messages.map((message, index, arr) => (
+        <ConversationBlock
+          key={index}
+          {...message}
+          last={index == arr.length - 1}
+        />
       ))}
       <SearchBar
         style={{ alignSelf: "flex-end", padding: 0 }}

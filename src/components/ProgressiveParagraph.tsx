@@ -1,33 +1,40 @@
+"use client"
 import { FC, useEffect, useState } from "react"
 
 export interface ProgressiveParagraphProps {
   text: string
   speed?: number
   style?: React.CSSProperties
+  deactivate?: boolean
 }
 
 export const ProgressiveParagraph: FC<ProgressiveParagraphProps> = ({
   text,
-  speed = 50,
+  speed = 10,
   style,
+  deactivate = false,
 }) => {
-  const [displayedText, setDisplayedText] = useState("")
+  const [displayedText, setDisplayedText] = useState(deactivate ? text : "")
   const [index, setIndex] = useState(0)
 
   useEffect(() => {
-    const words = text.split(" ")
-    const timer = setTimeout(() => {
-      if (index > words.length) {
-        clearTimeout(timer)
-        return
-      }
+    setIndex(0)
+  }, [text, deactivate])
 
-      setDisplayedText(words.slice(0, index).join(" "))
+  useEffect(() => {
+    if (deactivate || index > text.length) {
+      setDisplayedText(text)
+      return
+    }
+
+    const words = text.split("")
+    const timer = setTimeout(() => {
+      setDisplayedText(words.slice(0, index).join(""))
       setIndex(index + 1)
     }, speed)
 
     return () => clearTimeout(timer)
-  }, [text, index, speed])
+  }, [text, index, speed, deactivate])
 
   return <p style={{ ...style }}>{displayedText}</p>
 }

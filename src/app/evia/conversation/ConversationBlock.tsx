@@ -20,6 +20,7 @@ export interface Message {
     author: string
     body: string
   }
+  last?: boolean
 }
 
 export const ConversationBlock: FC<Message> = props => {
@@ -44,7 +45,10 @@ export const ConversationBlock: FC<Message> = props => {
         }}
       >
         <h3>{props.question}</h3>
-        <ProgressiveParagraph text={props.answer ?? ""} />
+        <ProgressiveParagraph
+          text={props.answer ?? ""}
+          deactivate={!props.last}
+        />
         <div
           style={{
             alignSelf: "flex-end",
