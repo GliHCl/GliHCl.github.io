@@ -1,6 +1,7 @@
 import { Conversation, Conversations } from "@/app/evia/conversation/page"
 
 export function getConvoKeys(): string[] {
+  if (typeof window == "undefined") return []
   const keys: string[] = []
   let idx = 0
   while (true) {
@@ -25,6 +26,13 @@ export function getConversations(): Conversations {
 }
 
 export function getConvoFromID(id: string): Conversation {
+  if (typeof window == "undefined")
+    return {
+      id,
+      date: new Date().toISOString(),
+      messages: [],
+    }
+
   return (
     JSON.parse(window.localStorage.getItem(`conversation-${id}`) ?? "null") ?? {
       id,
