@@ -152,7 +152,10 @@ const EviaFeedback: FC = () => {
               textDecoration: "none",
               cursor: "pointer",
             }}
-            onClick={() => setAfterModal(false)}
+            onClick={() => {
+              // reload the page
+              window.location.reload()
+            }}
           >
             Condividi ancora
           </button>
