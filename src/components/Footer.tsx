@@ -5,6 +5,7 @@ export const Footer: FC = () => {
     <footer
       style={{
         fontSize: "0.8rem",
+        flexShrink: 0,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -14,7 +15,6 @@ export const Footer: FC = () => {
         bottom: 0,
         backgroundColor: "rgba(100, 100, 100, 0.1)",
         padding: "16px 0",
-        margin: "16px 0 0 0",
         color: "#fff8",
       }}
     >
