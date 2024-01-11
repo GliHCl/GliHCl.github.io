@@ -31,6 +31,7 @@ export const NavBar: FC = () => {
         flexShrink: 0,
         maxWidth: 350,
         backgroundColor: "rgba(255,255,255,0.1)",
+        overflow: "hidden",
       }}
     >
       <div
@@ -39,6 +40,9 @@ export const NavBar: FC = () => {
           flexDirection: "column",
           gap: 10,
           padding: 16,
+          overflow: "hidden",
+          maxWidth: 310,
+          boxSizing: "border-box",
         }}
       >
         <Link style={{ color: "white", textDecoration: "none" }} href={"/evia"}>
