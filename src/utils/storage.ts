@@ -13,6 +13,7 @@ export function getConvoKeys(): string[] {
 }
 
 export function getConversations(): Conversations {
+  if (!window.localStorage) return []
   const keys = getConvoKeys()
   return keys
     .map(key => {
@@ -25,6 +26,12 @@ export function getConversations(): Conversations {
 }
 
 export function getConvoFromID(id: string): Conversation {
+  if (!window.localStorage)
+    return {
+      id,
+      date: new Date().toISOString(),
+      messages: [],
+    }
   return (
     JSON.parse(window.localStorage.getItem(`conversation-${id}`) ?? "null") ?? {
       id,

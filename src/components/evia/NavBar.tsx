@@ -8,10 +8,11 @@ import { getConversations } from "@/utils/storage"
 
 export const NavBar: FC = () => {
   const [open, setOpen] = useState(true)
-  const [convos, setConvos] = useState<Conversations>(getConversations())
+  const [convos, setConvos] = useState<Conversations>([])
 
   useEffect(() => {
     // Update conversations on storage event
+    setConvos(getConversations())
     const listener = () => {
       console.log("storage event! updating convos in navbar")
       setConvos(getConversations())
