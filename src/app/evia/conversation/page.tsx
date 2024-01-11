@@ -77,7 +77,7 @@ const EviaConversation: FC = () => {
         baseURL: "https://general-runtime.voiceflow.com",
         url: `/state/user/${conversation.id}/interact`,
         headers: {
-          Authorization: "VF.DM.65567153b1cadb00077141bb.PeTnRFvgHOeWq3al",
+          Authorization: "VF.DM.65a061c2213c970007154090.OZavUshJ7uXmh1Ca",
         },
         data: { action: { type: "text", payload } },
       })
