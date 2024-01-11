@@ -6,6 +6,8 @@ import { Divider } from "./Divider"
 import { Conversations } from "@/app/evia/conversation/page"
 import { getConversations } from "@/utils/storage"
 
+import styles from "./NavBar.module.scss"
+
 export const NavBar: FC = () => {
   const [open, setOpen] = useState(true)
   const [convos, setConvos] = useState<Conversations>([])
@@ -69,19 +71,11 @@ export const NavBar: FC = () => {
             alignItems: "stretch",
           }}
         >
-          <Divider title="Ieri" />
+          <Divider title="Oggi" />
           {convos.map((c, i) => (
             <Link
               key={i}
-              style={{
-                fontSize: 16,
-                color: "white",
-                textDecoration: "none",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-                whiteSpace: "nowrap",
-                cursor: "pointer",
-              }}
+              className={styles["history-element"]}
               href={`/evia/conversation?id=${c.id}`}
             >
               {c.messages[0].question}

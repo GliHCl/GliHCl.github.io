@@ -54,7 +54,7 @@ const EviaHome: FC = () => {
             alignItems: "center",
             textAlign: "center",
             color: "white",
-            maxWidth: 80,
+            maxWidth: 90,
             fontSize: 16,
             gap: 8,
           }}
@@ -68,7 +68,7 @@ const EviaHome: FC = () => {
               borderRadius: "50%",
             }}
           />
-          <b>Scopri le domande frequenti</b>
+          <b>Scopri le domande più cercate</b>
         </Link>
       </div>
     </div>

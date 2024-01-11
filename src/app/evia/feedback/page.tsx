@@ -5,7 +5,8 @@ import { Modal } from "@/components/Modal"
 import Link from "next/link"
 
 const EviaFeedback: FC = () => {
-  const [visible, setVisible] = useState(false)
+  const [confirmModal, setConfirmModal] = useState(false)
+  const [afterModal, setAfterModal] = useState(false)
 
   return (
     <div
@@ -71,22 +72,22 @@ const EviaFeedback: FC = () => {
           cursor: "pointer",
         }}
         onClick={() => {
-          setVisible(true)
+          setConfirmModal(true)
         }}
       >
         Condividi
       </button>
 
       {/* MODALE PER FEEDBACK */}
-      <Modal visible={visible} onClose={() => setVisible(false)}>
+      <Modal visible={confirmModal} onClose={() => setConfirmModal(false)}>
         <h1>Grazie per il tuo aiuto!</h1>
         <p>
-          Le informazioni che hai fornito saranno utili a tutti gli studenti che
-          cercheranno informazioni di quella categoria. I dati forniti verranno
-          trattati rispettando la politica sulla privacy.
+          Confermi di voler condividere queste informazioni con gli altri
+          utenti? <br />I dati forniti verranno trattati rispettando la politica
+          sulla privacy.
         </p>
         <div style={{ display: "flex", gap: 12, justifyContent: "flex-end" }}>
-          <Link
+          <button
             style={{
               backgroundColor: "rgba(255, 255, 255, 0.2)",
               alignSelf: "flex-end",
@@ -101,10 +102,10 @@ const EviaFeedback: FC = () => {
               textDecoration: "none",
               cursor: "pointer",
             }}
-            href={"/evia"}
+            onClick={() => setConfirmModal(false)}
           >
-            Home
-          </Link>
+            Annulla
+          </button>
           <button
             style={{
               backgroundColor: "#008edc",
@@ -120,10 +121,60 @@ const EviaFeedback: FC = () => {
               textDecoration: "none",
               cursor: "pointer",
             }}
-            onClick={() => setVisible(false)}
+            onClick={() => {
+              setConfirmModal(false)
+              setAfterModal(true)
+            }}
+          >
+            Conferma
+          </button>
+        </div>
+      </Modal>
+      <Modal visible={afterModal} onClose={() => setAfterModal(false)}>
+        <h1>Grazie per il tuo aiuto!</h1>
+        <p>
+          Le informazioni che hai fornito saranno utili a tutti gli studenti che
+          farnno domande riguardo queste categorie.
+        </p>
+        <div style={{ display: "flex", gap: 12, justifyContent: "flex-end" }}>
+          <button
+            style={{
+              backgroundColor: "rgba(255, 255, 255, 0.2)",
+              alignSelf: "flex-end",
+              border: "none",
+              borderRadius: 12,
+              fontSize: "1em",
+              padding: "8px 12px",
+              gap: 12,
+              float: "right",
+              alignItems: "stretch",
+              color: "white",
+              textDecoration: "none",
+              cursor: "pointer",
+            }}
+            onClick={() => setAfterModal(false)}
           >
             Condividi ancora
           </button>
+          <Link
+            style={{
+              backgroundColor: "#008edc",
+              alignSelf: "flex-end",
+              border: "none",
+              borderRadius: 12,
+              fontSize: "1em",
+              padding: "8px 12px",
+              gap: 12,
+              float: "right",
+              alignItems: "stretch",
+              color: "white",
+              textDecoration: "none",
+              cursor: "pointer",
+            }}
+            href={"/evia"}
+          >
+            Torna a Home
+          </Link>
         </div>
       </Modal>
     </div>

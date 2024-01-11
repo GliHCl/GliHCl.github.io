@@ -1,0 +1,16 @@
+.history-element {
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+
+  &:hover {
+    text-decoration: dotted underline;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}

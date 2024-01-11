@@ -27,6 +27,8 @@ export const ConversationBlock: FC<Message> = props => {
   const [positiveFeedback, setPositiveFeedback] = useState(false)
   const [negativeFeedback, setNegativeFeedback] = useState(false)
 
+  const [feedbackText, setFeedbackText] = useState("")
+
   return (
     <div
       style={{
@@ -254,6 +256,8 @@ export const ConversationBlock: FC<Message> = props => {
             padding: 12,
             fontSize: 16,
           }}
+          value={feedbackText}
+          onChange={e => setFeedbackText(e.target.value)}
         />
         <div
           style={{
@@ -272,7 +276,10 @@ export const ConversationBlock: FC<Message> = props => {
               padding: 12,
               color: "white",
             }}
-            onClick={() => setNegativeFeedback(false)}
+            onClick={() => {
+              setFeedbackText("")
+              setNegativeFeedback(false)
+            }}
           >
             Annulla
           </button>
@@ -286,7 +293,11 @@ export const ConversationBlock: FC<Message> = props => {
               padding: 12,
               color: "white",
             }}
-            onClick={() => setNegativeFeedback(false)}
+            onClick={() => {
+              setFeedbackText("")
+              setNegativeFeedback(false)
+              setPositiveFeedback(true)
+            }}
           >
             Invia
           </button>
