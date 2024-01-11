@@ -4,7 +4,17 @@ import { useSearchParams } from "next/navigation"
 import { ConversationBlock, Message, Source } from "./ConversationBlock"
 import { SearchBar } from "@/components/evia/SearchBar"
 import axios from "axios"
-import { getConvoFromID } from "@/utils/storage"
+import { getConvoFromID, isIDFromDiscovery } from "@/utils/storage"
+import discoveryConvos from "@/mock/discovery.json"
+
+function getConvoFromDiscovery(id: string): Conversation {
+  return {
+    id,
+    date: new Date().toISOString(),
+    messages: [],
+    ...discoveryConvos.find(q => q.id == id),
+  }
+}
 
 type Trace =
   | {
@@ -48,7 +58,11 @@ const EviaConversation: FC = () => {
     getConvoFromID(id ?? "")
   )
   useEffect(() => {
-    if (id) setConversation(getConvoFromID(id))
+    if (id) {
+      setConversation(
+        isIDFromDiscovery(id) ? getConvoFromDiscovery(id) : getConvoFromID(id)
+      )
+    }
   }, [id])
 
   const [loading, setLoading] = useState(false)
@@ -140,6 +154,7 @@ const EviaConversation: FC = () => {
 
   useEffect(() => {
     // save the conversation in the local storage
+    if (isIDFromDiscovery(conversation.id)) return
     window.localStorage.setItem(
       `conversation-${conversation.id}`,
       JSON.stringify(conversation)
@@ -169,13 +184,15 @@ const EviaConversation: FC = () => {
           last={index == arr.length - 1}
         />
       ))}
-      <SearchBar
-        style={{ alignSelf: "flex-end", padding: 0 }}
-        onSearch={q => {
-          console.log("new question: ", q)
-          converse(q)
-        }}
-      />
+      {!isIDFromDiscovery(conversation.id) && (
+        <SearchBar
+          style={{ alignSelf: "flex-end", padding: 0 }}
+          onSearch={q => {
+            console.log("new question: ", q)
+            converse(q)
+          }}
+        />
+      )}
     </div>
   )
 }

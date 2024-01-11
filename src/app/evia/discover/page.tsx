@@ -1,6 +1,6 @@
 import { FC } from "react"
 
-import questions from "@/mock/questions.json"
+import questions from "@/mock/discovery.json"
 import { QuestionDiscovery } from "./QuestionDiscovery"
 
 const EviaDiscover: FC = () => {
@@ -21,11 +21,7 @@ const EviaDiscover: FC = () => {
     >
       <h1>Scopri le domande più cercate</h1>
       {questions.map((question, index) => (
-        <QuestionDiscovery
-          key={index}
-          title={question.title}
-          body={question.body}
-        />
+        <QuestionDiscovery key={index} conversation={question} />
       ))}
     </div>
   )

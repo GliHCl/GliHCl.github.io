@@ -149,6 +149,65 @@ export const ConversationBlock: FC<Message> = props => {
               </span>
             </Link>
           ))}
+          {props.userExtract && (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                backgroundColor: "rgba(255, 255, 255, 0.1)",
+                borderRadius: 12,
+                padding: 8,
+                height: 120,
+                overflow: "hidden",
+                gap: 4,
+                flex: 1,
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  gap: 8,
+                  alignItems: "center",
+                }}
+              >
+                <span style={{ fontSize: "0.7em" }}>
+                  L&apos;opinione degli altri utenti <br />
+                  {new Date(props.userExtract.date).toLocaleDateString(
+                    "it-IT",
+                    {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    }
+                  )}
+                </span>
+                <span
+                  style={{
+                    fontSize: "1em",
+                    fontWeight: "bold",
+                    marginLeft: "auto",
+                  }}
+                >
+                  di {props.userExtract.author}
+                </span>
+                <Image
+                  width={24}
+                  height={24}
+                  src="/avatar.png"
+                  alt="pfp"
+                  style={{ borderRadius: "50%" }}
+                />
+              </div>
+              <p style={{ fontSize: "0.9em" }}>
+                <span
+                  style={{ color: "rgb(0, 142, 220)", padding: "0px 4px;" }}
+                >
+                  {`[${props.sources.length + 1}] `}
+                </span>
+                {props.userExtract.body}
+              </p>
+            </div>
+          )}
         </div>
       )}
 

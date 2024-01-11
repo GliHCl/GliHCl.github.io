@@ -4,6 +4,17 @@ import Image from "next/image"
 import Link from "next/link"
 
 export const QuestionDiscovery: FC<QuestionProps> = props => {
+  const title = props.conversation.messages[0].question
+  const body = props.conversation.messages[0].answer
+  let image = ""
+
+  for (const messages of props.conversation.messages) {
+    if (messages.sources && messages.sources[0].image) {
+      image = messages.sources[0].image
+      break
+    }
+  }
+
   return (
     <Link
       style={{
@@ -18,14 +29,17 @@ export const QuestionDiscovery: FC<QuestionProps> = props => {
         textDecoration: "none",
         cursor: "pointer",
       }}
-      href={"#"}
+      href={`/evia/conversation?id=${props.conversation.id}`}
     >
-      <Image
-        width={136}
-        height={136}
-        src={props.image ?? "/placeholder.jpg"}
-        alt={props.title}
-      />
+      {image && (
+        <Image
+          style={{ objectFit: "cover", borderRadius: 8 }}
+          width={136}
+          height={136}
+          src={image}
+          alt="img"
+        />
+      )}
       <div
         style={{
           flex: 1,
@@ -36,8 +50,8 @@ export const QuestionDiscovery: FC<QuestionProps> = props => {
           overflow: "hidden",
         }}
       >
-        <h3>{props.title}</h3>
-        <p style={{ overflow: "hidden" }}>{props.body}</p>
+        <h3>{title}</h3>
+        <p style={{ overflow: "hidden" }}>{body}</p>
       </div>
     </Link>
   )

@@ -6,7 +6,7 @@ import Link from "next/link"
 import { FC } from "react"
 import { IoArrowForward } from "react-icons/io5"
 
-import questions from "@/mock/questions.json"
+import discoveryConvos from "@/mock/discovery.json"
 import { useRouter } from "next/navigation"
 
 const EviaHome: FC = () => {
@@ -43,12 +43,8 @@ const EviaHome: FC = () => {
           gap: 16,
         }}
       >
-        {questions.slice(0, 3).map((question, index) => (
-          <QuestionHomePreview
-            key={index}
-            title={question.title}
-            body={question.body}
-          />
+        {discoveryConvos.slice(0, 3).map((conv, index) => (
+          <QuestionHomePreview key={index} conversation={conv} />
         ))}
         <Link
           style={{

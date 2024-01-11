@@ -1,15 +1,24 @@
-import { title } from "process"
 import Image from "next/image"
 import { FC } from "react"
 import Link from "next/link"
+import { Conversation } from "@/app/evia/conversation/page"
 
 export interface QuestionProps {
-  title: string
-  body: string
-  image?: string
+  conversation: Omit<Conversation, "date">
 }
 
 export const QuestionHomePreview: FC<QuestionProps> = props => {
+  const title = props.conversation.messages[0].question
+  const body = props.conversation.messages[0].answer
+  let image = ""
+
+  for (const messages of props.conversation.messages) {
+    if (messages.sources && messages.sources[0].image) {
+      image = messages.sources[0].image
+      break
+    }
+  }
+
   return (
     <Link
       style={{
@@ -26,15 +35,17 @@ export const QuestionHomePreview: FC<QuestionProps> = props => {
         textDecoration: "none",
         cursor: "pointer",
       }}
-      href={"#"}
+      href={`/evia/conversation?id=${props.conversation.id}`}
     >
-      <Image
-        style={{ objectFit: "cover" }}
-        width={200}
-        height={88}
-        src={props.image ?? "/placeholder.jpg"}
-        alt={title}
-      />
+      {image && (
+        <Image
+          style={{ objectFit: "cover" }}
+          width={200}
+          height={88}
+          src={image}
+          alt="img"
+        />
+      )}
       <div
         style={{
           flex: 1,
@@ -45,14 +56,14 @@ export const QuestionHomePreview: FC<QuestionProps> = props => {
           overflow: "hidden",
         }}
       >
-        <h3>{props.title}</h3>
+        <h3>{title}</h3>
         <p
           style={{
             textOverflow: "ellipsis",
             overflow: "hidden",
           }}
         >
-          {props.body}
+          {body}
         </p>
       </div>
     </Link>

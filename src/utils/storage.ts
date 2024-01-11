@@ -40,3 +40,7 @@ export function getConvoFromID(id: string): Conversation {
     }
   )
 }
+
+export function isIDFromDiscovery(id: string): boolean {
+  return id.startsWith("discovery_")
+}
