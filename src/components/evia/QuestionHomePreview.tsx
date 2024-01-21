@@ -30,7 +30,7 @@ export const QuestionHomePreview: FC<QuestionProps> = props => {
         overflow: "hidden",
         wordWrap: "break-word",
         textOverflow: "ellipsis",
-        backgroundColor: "rgba(255, 255, 255, 0.1)",
+        backgroundColor: "var(--color-primary)",
         color: "white",
         textDecoration: "none",
         cursor: "pointer",

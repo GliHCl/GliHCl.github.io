@@ -1,3 +1,18 @@
+:root {
+  --color-background: #18222f;
+  --color-primary: #1f3147;
+  --color-secondary: #192739;
+  --color-white: #f5f5f5;
+  --color-accent: #ffad00;
+}
+
 body {
   max-height: 100vh;
+  background: none;
+  background-color: var(--color-background);
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #000;
 }

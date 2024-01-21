@@ -48,7 +48,7 @@ const EviaFeedback: FC = () => {
           borderRadius: 12,
           padding: 12,
           fontSize: "0.9em",
-          backgroundColor: "rgba(255,255,255,0.1)",
+          backgroundColor: "var(--color-primary)",
           border: "none",
           color: "white",
           resize: "vertical",
@@ -58,7 +58,7 @@ const EviaFeedback: FC = () => {
       />
       <button
         style={{
-          backgroundColor: "#008edc",
+          backgroundColor: "var(--color-accent)",
           alignSelf: "flex-end",
           border: "none",
           borderRadius: 12,
@@ -67,7 +67,7 @@ const EviaFeedback: FC = () => {
           gap: 12,
           float: "right",
           alignItems: "stretch",
-          color: "white",
+          color: "black",
           textDecoration: "none",
           cursor: "pointer",
         }}
@@ -89,7 +89,7 @@ const EviaFeedback: FC = () => {
         <div style={{ display: "flex", gap: 12, justifyContent: "flex-end" }}>
           <button
             style={{
-              backgroundColor: "rgba(255, 255, 255, 0.2)",
+              backgroundColor: "var(--color-primary)",
               alignSelf: "flex-end",
               border: "none",
               borderRadius: 12,
@@ -108,7 +108,7 @@ const EviaFeedback: FC = () => {
           </button>
           <button
             style={{
-              backgroundColor: "#008edc",
+              backgroundColor: "var(--color-accent)",
               alignSelf: "flex-end",
               border: "none",
               borderRadius: 12,
@@ -117,7 +117,7 @@ const EviaFeedback: FC = () => {
               gap: 12,
               float: "right",
               alignItems: "stretch",
-              color: "white",
+              color: "black",
               textDecoration: "none",
               cursor: "pointer",
             }}
@@ -139,7 +139,7 @@ const EviaFeedback: FC = () => {
         <div style={{ display: "flex", gap: 12, justifyContent: "flex-end" }}>
           <button
             style={{
-              backgroundColor: "rgba(255, 255, 255, 0.2)",
+              backgroundColor: "var(--color-primary)",
               alignSelf: "flex-end",
               border: "none",
               borderRadius: 12,
@@ -161,7 +161,7 @@ const EviaFeedback: FC = () => {
           </button>
           <Link
             style={{
-              backgroundColor: "#008edc",
+              backgroundColor: "var(--color-accent)",
               alignSelf: "flex-end",
               border: "none",
               borderRadius: 12,
@@ -170,7 +170,7 @@ const EviaFeedback: FC = () => {
               gap: 12,
               float: "right",
               alignItems: "stretch",
-              color: "white",
+              color: "black",
               textDecoration: "none",
               cursor: "pointer",
             }}

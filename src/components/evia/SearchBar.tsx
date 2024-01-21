@@ -42,6 +42,7 @@ export const SearchBar: FC<SearchBarProps> = ({ onSearch, style }) => {
           borderRadius: 12,
           padding: 12,
           fontSize: 16,
+          backgroundColor: "var(--color-primary)",
         }}
         value={query}
         onChange={e => setQuery(e.target.value)}
@@ -61,8 +62,8 @@ export const SearchBar: FC<SearchBarProps> = ({ onSearch, style }) => {
           display: "flex",
           justifyContent: "stretch",
           alignItems: "center",
-          backgroundColor: "#008edc",
-          color: "white",
+          backgroundColor: "var(--color-accent)",
+          color: "var(--color-background)",
           padding: 8,
         }}
         onClick={callback}

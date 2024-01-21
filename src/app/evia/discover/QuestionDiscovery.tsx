@@ -18,7 +18,7 @@ export const QuestionDiscovery: FC<QuestionProps> = props => {
   return (
     <Link
       style={{
-        backgroundColor: "rgba(255, 255, 255, 0.1)",
+        backgroundColor: "var(--color-primary)",
         borderRadius: 12,
         height: 160,
         padding: 12,

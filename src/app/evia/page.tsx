@@ -25,7 +25,19 @@ const EviaHome: FC = () => {
         gap: 16,
       }}
     >
-      <h1 style={{ fontSize: 70 }}>eVia</h1>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          padding: "12px 24px",
+          backgroundColor: "var(--color-accent)",
+          color: "var(--color-background)",
+          borderRadius: 12,
+        }}
+      >
+        <h1 style={{ fontSize: 70 }}>eVia</h1>
+      </div>
       <SearchBar
         onSearch={query => {
           // generate UUID
@@ -62,10 +74,11 @@ const EviaHome: FC = () => {
         >
           <IoArrowForward
             style={{
-              backgroundColor: "#008edc",
+              backgroundColor: "var(--color-accent)",
               width: 80,
               height: 80,
               borderRadius: "50%",
+              color: "var(--color-background)",
             }}
           />
           <b>Scopri le domande più cercate</b>

@@ -18,17 +18,17 @@ export const Modal: FC<ModalProps> = props => {
         height: "100vh",
         alignItems: "center",
         justifyContent: "center",
-        backdropFilter: "blur(10px)",
-        WebkitBackdropFilter: "blur(10px)",
+        backdropFilter: "blur(12px)",
+        WebkitBackdropFilter: "blur(12px)",
         zIndex: 100,
-        backgroundColor: "rgba(200,200,200,0.2)",
+        backgroundColor: "rgba(0,0,0,0.5)",
       }}
       onClick={() => props.onClose?.()}
     >
       <div
         onClick={e => e.stopPropagation()}
         style={{
-          backgroundColor: "#000",
+          backgroundColor: "var(--color-secondary)",
           borderRadius: 12,
           padding: 12,
           gap: 12,

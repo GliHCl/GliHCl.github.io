@@ -41,7 +41,7 @@ export const ConversationBlock: FC<Message> = props => {
     >
       <div
         style={{
-          backgroundColor: "rgba(255, 255, 255, 0.1)",
+          backgroundColor: "var(--color-primary)",
           borderRadius: 12,
           padding: 16,
         }}
@@ -68,7 +68,7 @@ export const ConversationBlock: FC<Message> = props => {
             }}
             onClick={() => setPositiveFeedback(true)}
           >
-            <IoCheckbox style={{ height: 20, width: 20 }} />
+            <IoCheckbox style={{ height: 26, width: 26 }} />
           </button>
           <button
             style={{
@@ -79,7 +79,7 @@ export const ConversationBlock: FC<Message> = props => {
             }}
             onClick={() => setNegativeFeedback(true)}
           >
-            <IoWarning style={{ height: 20, width: 20 }} />
+            <IoWarning style={{ height: 26, width: 26 }} />
           </button>
           <button
             style={{
@@ -89,7 +89,7 @@ export const ConversationBlock: FC<Message> = props => {
               cursor: "pointer",
             }}
           >
-            <IoReloadCircle style={{ height: 20, width: 20 }} />
+            <IoReloadCircle style={{ height: 26, width: 26 }} />
           </button>
         </div>
       </div>
@@ -110,7 +110,7 @@ export const ConversationBlock: FC<Message> = props => {
               style={{
                 display: "flex",
                 alignItems: "stretch",
-                backgroundColor: "rgba(255, 255, 255, 0.1)",
+                backgroundColor: "var(--color-primary)",
                 borderRadius: 12,
                 flexDirection: "column",
                 overflow: "hidden",
@@ -141,9 +141,9 @@ export const ConversationBlock: FC<Message> = props => {
                   width: "100%",
                 }}
               >
-                <span style={{ color: "#008edc", padding: "0px 4px" }}>{`[${
-                  index + 1
-                }] `}</span>
+                <span
+                  style={{ color: "var(--color-accent)", padding: "0px 4px" }}
+                >{`[${index + 1}] `}</span>
                 {source.url}
               </span>
               <span style={{ fontSize: "1em", padding: "0 4px" }}>
@@ -156,7 +156,7 @@ export const ConversationBlock: FC<Message> = props => {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                backgroundColor: "rgba(255, 255, 255, 0.1)",
+                backgroundColor: "var(--color-primary)",
                 borderRadius: 12,
                 padding: 8,
                 height: 120,
@@ -217,13 +217,13 @@ export const ConversationBlock: FC<Message> = props => {
         </p>
         <button
           style={{
-            backgroundColor: "#008edc",
+            backgroundColor: "var(--color-accent)",
             border: "none",
             outline: "none",
             cursor: "pointer",
             borderRadius: 12,
             padding: 12,
-            color: "white",
+            color: "black",
             alignSelf: "flex-end",
           }}
           onClick={() => setPositiveFeedback(false)}
@@ -242,6 +242,7 @@ export const ConversationBlock: FC<Message> = props => {
           style={{
             border: "none",
             outline: "none",
+            backgroundColor: "var(--color-primary)",
             margin: 0,
             flex: 1,
             minHeight: 40,
@@ -262,7 +263,7 @@ export const ConversationBlock: FC<Message> = props => {
         >
           <button
             style={{
-              backgroundColor: "rgba(255, 255, 255, 0.1)",
+              backgroundColor: "var(--color-primary)",
               border: "none",
               outline: "none",
               cursor: "pointer",
@@ -279,13 +280,13 @@ export const ConversationBlock: FC<Message> = props => {
           </button>
           <button
             style={{
-              backgroundColor: "#008edc",
+              backgroundColor: "var(--color-accent)",
               border: "none",
               outline: "none",
               cursor: "pointer",
               borderRadius: 12,
               padding: 12,
-              color: "white",
+              color: "black",
             }}
             onClick={() => {
               setFeedbackText("")

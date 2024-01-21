@@ -13,7 +13,9 @@ export const CategoryButton: FC<CategoryButtonProps> = props => {
   return (
     <button
       style={{
-        backgroundColor: selected ? "#008edc" : "rgba(255, 255, 255, 0.1)",
+        backgroundColor: selected
+          ? "var(--color-accent)"
+          : "var(--color-primary)",
         border: "none",
         borderRadius: 12,
         fontSize: "1em",
@@ -21,7 +23,7 @@ export const CategoryButton: FC<CategoryButtonProps> = props => {
         display: "flex",
         gap: 12,
         alignItems: "stretch",
-        color: "white",
+        color: selected ? "black" : "white",
         textDecoration: "none",
         cursor: "pointer",
       }}

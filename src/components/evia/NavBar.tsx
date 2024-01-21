@@ -31,7 +31,7 @@ export const NavBar: FC = () => {
         justifyContent: "stretch",
         alignItems: "stretch",
         flexShrink: 0,
-        backgroundColor: "rgba(255,255,255,0.1)",
+        backgroundColor: "var(--color-secondary)",
         overflow: "hidden",
       }}
     >
@@ -42,10 +42,12 @@ export const NavBar: FC = () => {
             ? {}
             : {
                 borderRadius: "100px",
-                border: "1px solid white",
+                border: "1px solid var(--color-background)",
                 lineHeight: "40px",
                 width: 48,
                 height: 48,
+                color: "var(--color-background)",
+                backgroundColor: "var(--color-accent)",
               }
         }
         href={"/evia"}
@@ -76,11 +78,11 @@ export const NavBar: FC = () => {
         >
           <Link
             style={{
-              color: "white",
+              color: "black",
               padding: 12,
               alignSelf: "center",
               borderRadius: 12,
-              backgroundColor: "#008edc",
+              backgroundColor: "var(--color-accent)",
             }}
             href={"/evia/feedback"}
           >
