@@ -27,88 +27,130 @@ export const NavBar: FC = () => {
     <section
       style={{
         display: "flex",
-        flexDirection: "row",
+        flexDirection: "column",
         justifyContent: "stretch",
         alignItems: "stretch",
         flexShrink: 0,
-        maxWidth: 350,
         backgroundColor: "rgba(255,255,255,0.1)",
         overflow: "hidden",
       }}
     >
+      <Link
+        className={styles["home-logo"]}
+        style={
+          open
+            ? {}
+            : {
+                borderRadius: "100px",
+                border: "1px solid white",
+                lineHeight: "40px",
+                width: 48,
+                height: 48,
+              }
+        }
+        href={"/evia"}
+      >
+        {open ? "eVia" : "e"}
+      </Link>
       <div
         style={{
-          display: open ? "flex" : "none",
-          flexDirection: "column",
-          gap: 10,
-          padding: 16,
+          flex: "1 0 auto",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-around",
+          alignItems: "stretch",
+          maxWidth: 350,
           overflow: "hidden",
-          maxWidth: 310,
-          boxSizing: "border-box",
         }}
       >
-        <Link style={{ color: "white", textDecoration: "none" }} href={"/evia"}>
-          <h1 style={{ fontSize: 32 }}>eVia</h1>
-        </Link>
-        <Link
-          style={{
-            color: "white",
-            padding: 12,
-            alignSelf: "center",
-            borderRadius: 12,
-            backgroundColor: "#008edc",
-          }}
-          href={"/evia/feedback"}
-        >
-          Raccontaci la tua esperienza
-        </Link>
-        <h3 style={{ fontSize: 18 }}>Conversazioni precedenti:</h3>
         <div
           style={{
-            flex: 1,
-            display: "flex",
+            display: open ? "flex" : "none",
             flexDirection: "column",
-            alignItems: "stretch",
+            gap: 10,
+            padding: 16,
+            overflow: "hidden",
+            maxWidth: 310,
+            boxSizing: "border-box",
           }}
         >
-          <Divider title="Oggi" />
-          {convos.map((c, i) => (
-            <Link
-              key={i}
-              className={styles["history-element"]}
-              href={`/evia/conversation?id=${c.id}`}
-            >
-              {c.messages[0].question}
-            </Link>
-          ))}
+          <Link
+            style={{
+              color: "white",
+              padding: 12,
+              alignSelf: "center",
+              borderRadius: 12,
+              backgroundColor: "#008edc",
+            }}
+            href={"/evia/feedback"}
+          >
+            Raccontaci la tua esperienza
+          </Link>
+          <h3 style={{ fontSize: 18 }}>Conversazioni precedenti:</h3>
+          <div
+            style={{
+              flex: 1,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "stretch",
+            }}
+          >
+            {convos.length === 0 ? (
+              <span
+                style={{
+                  color: "white",
+                  opacity: 0.8,
+                  fontSize: "0.9em",
+                  textAlign: "center",
+                  alignSelf: "center",
+                  margin: 12,
+                }}
+              >
+                Nessuna conversazione recente
+              </span>
+            ) : (
+              <>
+                <Divider title="Oggi" />
+                {convos.map((c, i) => (
+                  <Link
+                    key={i}
+                    className={styles["history-element"]}
+                    href={`/evia/conversation?id=${c.id}`}
+                  >
+                    {c.messages[0].question}
+                  </Link>
+                ))}
+              </>
+            )}
+          </div>
         </div>
-      </div>
-      <div
-        style={{
-          height: "100%",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <button
-          onClick={() => setOpen(!open)}
+        <div
           style={{
-            cursor: "pointer",
-            border: "none",
-            outline: "none",
-            margin: 0,
-            height: 60,
-            color: "white",
-            backgroundColor: "transparent",
+            height: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
-          {open ? (
-            <IoChevronBack style={{ height: "100%", width: 40 }} />
-          ) : (
-            <IoChevronForward style={{ height: "100%", width: 40 }} />
-          )}
-        </button>
+          <button
+            onClick={() => setOpen(!open)}
+            style={{
+              cursor: "pointer",
+              border: "none",
+              outline: "none",
+              margin: 0,
+              height: 60,
+              color: "white",
+              backgroundColor: "transparent",
+            }}
+          >
+            {open ? (
+              <IoChevronBack style={{ height: "100%", width: 40 }} />
+            ) : (
+              <IoChevronForward style={{ height: "100%", width: 40 }} />
+            )}
+          </button>
+        </div>
       </div>
     </section>
   )

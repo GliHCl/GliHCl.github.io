@@ -1,4 +1,5 @@
 import { NavBar } from "@/components/evia/NavBar"
+import "./evia.scss"
 
 export default function EviaLayout({
   children,

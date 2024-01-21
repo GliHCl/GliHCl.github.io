@@ -173,7 +173,7 @@ export const ConversationBlock: FC<Message> = props => {
                 }}
               >
                 <span style={{ fontSize: "0.7em" }}>
-                  L&apos;opinione degli altri utenti <br />
+                  Dai racconti degli altri utenti <br />
                   {new Date(props.userExtract.date).toLocaleDateString(
                     "it-IT",
                     {
@@ -200,14 +200,7 @@ export const ConversationBlock: FC<Message> = props => {
                   style={{ borderRadius: "50%" }}
                 />
               </div>
-              <p style={{ fontSize: "0.9em" }}>
-                <span
-                  style={{ color: "rgb(0, 142, 220)", padding: "0px 4px;" }}
-                >
-                  {`[${props.sources.length + 1}] `}
-                </span>
-                {props.userExtract.body}
-              </p>
+              <p style={{ fontSize: "0.9em" }}>{props.userExtract.body}</p>
             </div>
           )}
         </div>
@@ -251,10 +244,11 @@ export const ConversationBlock: FC<Message> = props => {
             outline: "none",
             margin: 0,
             flex: 1,
-            height: 40,
+            minHeight: 40,
             borderRadius: 12,
             padding: 12,
             fontSize: 16,
+            resize: "vertical",
           }}
           value={feedbackText}
           onChange={e => setFeedbackText(e.target.value)}

@@ -19,7 +19,7 @@ const EviaDiscover: FC = () => {
         gap: 16,
       }}
     >
-      <h1>Scopri le domande più cercate</h1>
+      <h1 style={{ textAlign: "center" }}>Scopri le domande più cercate</h1>
       {questions.map((question, index) => (
         <QuestionDiscovery key={index} conversation={question} />
       ))}

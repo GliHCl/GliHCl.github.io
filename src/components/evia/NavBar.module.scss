@@ -14,3 +14,20 @@
     background-color: rgba(255, 255, 255, 0.1);
   }
 }
+
+.home-logo {
+  color: white;
+  text-decoration: none;
+  font-size: 48px;
+  cursor: pointer;
+  border-radius: 8px;
+  margin: 16px;
+
+  text-align: center;
+  vertical-align: middle;
+  font-family: var(--font-poppins);
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
