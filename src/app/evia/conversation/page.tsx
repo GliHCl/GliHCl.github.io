@@ -91,11 +91,12 @@ const EviaConversation: FC = () => {
         baseURL: "https://general-runtime.voiceflow.com",
         url: `/state/user/${conversation.id}/interact`,
         headers: {
-          Authorization: "VF.DM.65a061c2213c970007154090.OZavUshJ7uXmh1Ca",
+          Authorization: "VF.DM.65b3d5f8c6b83f0007d04529.WC8wuqKDSinFjuPZ",
         },
         data: { action: { type: "text", payload } },
       })
       const { data }: { data: Array<Trace> } = await response
+    
 
       // filter all the traces to compose the text answer
       const answer = data
@@ -104,6 +105,13 @@ const EviaConversation: FC = () => {
           if (cur.type !== "text") return acc
           return acc + " " + cur.payload.message
         }, "")
+
+        //Try again if the answer is empty
+        if(answer.length == 0){
+          console.log("Empty answer, retrying")
+          converse(payload)
+          return;
+        }
 
       // filter the sources to compose the sources list
       const sourcesURLs = data

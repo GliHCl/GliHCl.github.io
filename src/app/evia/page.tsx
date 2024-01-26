@@ -52,7 +52,7 @@ const EviaHome: FC = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          gap: 16,
+          gap: 20,
         }}
       >
         {discoveryConvos.slice(0, 3).map((conv, index) => (
