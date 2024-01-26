@@ -82,6 +82,7 @@ export const NavBar: FC = () => {
               padding: 12,
               alignSelf: "center",
               borderRadius: 12,
+              textDecoration: "none",
               backgroundColor: "var(--color-accent)",
             }}
             href={"/evia/feedback"}

@@ -66,6 +66,7 @@ const EviaHome: FC = () => {
             alignItems: "center",
             textAlign: "center",
             color: "white",
+            textDecoration: "none",
             maxWidth: 90,
             fontSize: 16,
             gap: 8,
