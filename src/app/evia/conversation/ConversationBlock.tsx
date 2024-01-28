@@ -3,7 +3,8 @@ import { ProgressiveParagraph } from "@/components/ProgressiveParagraph"
 import Image from "next/image"
 import Link from "next/link"
 import { FC, useState } from "react"
-import { IoCheckbox, IoReloadCircle, IoWarning } from "react-icons/io5"
+import { IoIosThumbsUp, IoIosThumbsDown } from "react-icons/io"
+import { IoReloadCircle } from "react-icons/io5"
 
 export interface Source {
   url: string
@@ -27,6 +28,7 @@ export const ConversationBlock: FC<Message> = props => {
   const [positiveFeedback, setPositiveFeedback] = useState(false)
   const [negativeFeedback, setNegativeFeedback] = useState(false)
 
+  const [answer, setAnswer] = useState(props.answer ?? ("" as string))
   const [feedbackText, setFeedbackText] = useState("")
 
   return (
@@ -47,10 +49,7 @@ export const ConversationBlock: FC<Message> = props => {
         }}
       >
         <h3>{props.question}</h3>
-        <ProgressiveParagraph
-          text={props.answer ?? ""}
-          deactivate={!props.last}
-        />
+        <ProgressiveParagraph text={answer} deactivate={!props.last} />
         <div
           style={{
             alignSelf: "flex-end",
@@ -66,9 +65,10 @@ export const ConversationBlock: FC<Message> = props => {
               outline: "none",
               cursor: "pointer",
             }}
+            title="Buona risposta"
             onClick={() => setPositiveFeedback(true)}
           >
-            <IoCheckbox style={{ height: 26, width: 26 }} />
+            <IoIosThumbsUp style={{ height: 26, width: 26 }} />
           </button>
           <button
             style={{
@@ -78,8 +78,9 @@ export const ConversationBlock: FC<Message> = props => {
               cursor: "pointer",
             }}
             onClick={() => setNegativeFeedback(true)}
+            title="Cattiva risposta"
           >
-            <IoWarning style={{ height: 26, width: 26 }} />
+            <IoIosThumbsDown style={{ height: 26, width: 26 }} />
           </button>
           <button
             style={{
@@ -87,6 +88,13 @@ export const ConversationBlock: FC<Message> = props => {
               border: "none",
               outline: "none",
               cursor: "pointer",
+            }}
+            title="Rigenera risposta"
+            onClick={() => {
+              setAnswer("")
+              setPositiveFeedback(false)
+              setNegativeFeedback(false)
+              setTimeout(() => setAnswer(props.answer ?? ""), 10)
             }}
           >
             <IoReloadCircle style={{ height: 26, width: 26 }} />

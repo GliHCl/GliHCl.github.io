@@ -84,10 +84,11 @@ export const NavBar: FC = () => {
               borderRadius: 12,
               textDecoration: "none",
               backgroundColor: "var(--color-accent)",
+              textAlign: "center",
             }}
             href={"/evia/feedback"}
           >
-            Raccontaci la tua esperienza
+            Raccontaci la tua esperienza sulla mobilità
           </Link>
           <h3 style={{ fontSize: 18 }}>Conversazioni precedenti:</h3>
           <div

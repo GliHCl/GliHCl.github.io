@@ -1,4 +1,5 @@
 import { FC } from "react"
+import { inherits } from "util"
 
 export const Footer: FC = () => {
   return (
@@ -18,7 +19,12 @@ export const Footer: FC = () => {
         color: "#fff8",
       }}
     >
-      <span>&copy; 2023 - Gli HCl</span>
+      <span>
+        &copy; 2023 -{" "}
+        <a style={{ color: "inherit" }} href="https://glihcl.it">
+          Gli HCl
+        </a>
+      </span>
       <span>All rights reserved</span>
     </footer>
   )

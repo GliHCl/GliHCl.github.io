@@ -22,7 +22,7 @@ const EviaHome: FC = () => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        gap: 16,
+        gap: 40,
       }}
     >
       <div
@@ -38,15 +38,38 @@ const EviaHome: FC = () => {
       >
         <h1 style={{ fontSize: 70 }}>eVia</h1>
       </div>
-      <SearchBar
-        onSearch={query => {
-          // generate UUID
-          let newID = Math.random().toString(36).substring(7)
-          router.push(
-            `/evia/conversation?id=${newID}&q=${encodeURIComponent(query)}`
-          )
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: 12,
+          width: "100%",
         }}
-      />
+      >
+        <p
+          style={{
+            fontSize: "1.2em",
+            width: "70%",
+            maxWidth: 700,
+            textAlign: "center",
+          }}
+        >
+          Fai qualsiasi domanda sulla mobilità internazionale e ricevi risposte
+          generate dalle fonti ufficiali e dalle esperienze degli altri
+          studenti.
+        </p>
+        <SearchBar
+          onSearch={query => {
+            // generate UUID
+            let newID = Math.random().toString(36).substring(7)
+            router.push(
+              `/evia/conversation?id=${newID}&q=${encodeURIComponent(query)}`
+            )
+          }}
+        />
+      </div>
       <div
         style={{
           display: "flex",

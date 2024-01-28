@@ -25,8 +25,13 @@ const EviaFeedback: FC = () => {
     >
       <h1>Raccontaci la tua esperienza</h1>
       <p>
-        Le informazioni che fornirai verranno utilizzate per migliorare il
-        nostro servizio ed aiutare ulteriormente gli studenti in difficoltà.
+        Raccontaci la tua esperienza sulla mobilità, aiuterai gli altri studenti
+        a prendere la decisione giusta.
+      </p>
+      <p>
+        Estratti delle informazioni che ci fornirai saranno utilizzati come
+        fonti per arricchire le risposte agli studenti che faranno domande
+        riguardo le categorie selezionate.
       </p>
       <h3>Seleziona gli argomenti principali</h3>
       <div
