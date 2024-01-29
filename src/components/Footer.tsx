@@ -20,7 +20,7 @@ export const Footer: FC = () => {
       }}
     >
       <span>
-        &copy; 2023 -{" "}
+        &copy; 2024 -{" "}
         <a style={{ color: "inherit" }} href="https://glihcl.it">
           Gli HCl
         </a>

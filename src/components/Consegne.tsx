@@ -3,8 +3,6 @@ import { PDFLink } from "./PDFLink"
 import fs from "fs/promises"
 import path from "path"
 
-import styles from "@/app/page.module.scss"
-
 const dir = path.join(process.cwd(), "public", "consegne")
 
 /** display the pdflinks in a grid */
@@ -34,9 +32,17 @@ export const Consegne: FC = async () => {
           margin: "16px 0",
         }}
       >
-        {files.map(file => (
-          <PDFLink key={`pdf_link_${file}`} filename={file} />
-        ))}
+        {files.map(file => {
+          let filename = path.parse(file).name
+          if (!isNaN(Number(filename))) filename = `Consegna ${filename}`
+          return (
+            <PDFLink
+              key={`pdf_link_${file}`}
+              filename={filename}
+              path={encodeURI(file)}
+            />
+          )
+        })}
       </div>
     </div>
   )

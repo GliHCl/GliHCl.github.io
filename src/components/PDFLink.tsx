@@ -3,9 +3,12 @@ import { FC } from "react"
 import { IoDocument } from "react-icons/io5"
 import pageStyle from "@/app/page.module.scss"
 
-export const PDFLink: FC<{ filename: string }> = ({ filename }) => {
+export const PDFLink: FC<{ filename: string; path: string }> = ({
+  filename,
+  path,
+}) => {
   return (
-    <Link href={`/consegne/${filename}`}>
+    <Link href={`/consegne/${path}`}>
       <div
         className={pageStyle.card}
         style={{
@@ -28,7 +31,7 @@ export const PDFLink: FC<{ filename: string }> = ({ filename }) => {
             margin: "0 0 8px 0",
           }}
         />
-        <span>Consegna {filename}</span>
+        <span>{filename}</span>
       </div>
     </Link>
   )
