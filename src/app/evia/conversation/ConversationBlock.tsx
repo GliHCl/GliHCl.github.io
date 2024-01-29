@@ -2,7 +2,7 @@ import { Modal } from "@/components/Modal"
 import { ProgressiveParagraph } from "@/components/ProgressiveParagraph"
 import Image from "next/image"
 import Link from "next/link"
-import { FC, useState } from "react"
+import { FC, useEffect, useState } from "react"
 import { IoIosThumbsUp, IoIosThumbsDown } from "react-icons/io"
 import { IoReloadCircle } from "react-icons/io5"
 
@@ -30,6 +30,10 @@ export const ConversationBlock: FC<Message> = props => {
 
   const [answer, setAnswer] = useState(props.answer ?? ("" as string))
   const [feedbackText, setFeedbackText] = useState("")
+
+  useEffect(() => {
+    setAnswer(props.answer ?? ("" as string))
+  }, [props.answer])
 
   return (
     <div

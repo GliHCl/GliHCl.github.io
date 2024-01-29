@@ -11,6 +11,7 @@ export const SearchBar: FC<SearchBarProps> = ({ onSearch, style }) => {
   const [query, setQuery] = useState("")
 
   const callback = useCallback(() => {
+    if (!query) return
     onSearch?.(query)
     setQuery("")
   }, [query, onSearch])
@@ -52,7 +53,7 @@ export const SearchBar: FC<SearchBarProps> = ({ onSearch, style }) => {
       />
       <button
         style={{
-          cursor: "pointer",
+          cursor: query ? "pointer" : "default",
           border: "none",
           outline: "none",
           margin: 0,
@@ -65,6 +66,8 @@ export const SearchBar: FC<SearchBarProps> = ({ onSearch, style }) => {
           backgroundColor: "var(--color-accent)",
           color: "var(--color-background)",
           padding: 8,
+          opacity: query ? 1 : 0.5,
+          transition: "opacity 0.2s ease-in-out",
         }}
         onClick={callback}
       >
