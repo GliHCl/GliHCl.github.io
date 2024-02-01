@@ -96,7 +96,6 @@ const EviaConversation: FC = () => {
         data: { action: { type: "text", payload } },
       })
       const { data }: { data: Array<Trace> } = await response
-    
 
       // filter all the traces to compose the text answer
       const answer = data
@@ -106,12 +105,12 @@ const EviaConversation: FC = () => {
           return acc + " " + cur.payload.message
         }, "")
 
-        //Try again if the answer is empty
-        if(answer.length == 0){
-          console.log("Empty answer, retrying")
-          converse(payload)
-          return;
-        }
+      //Try again if the answer is empty
+      if (answer.length == 0) {
+        console.log("Empty answer, retrying")
+        converse(payload)
+        return
+      }
 
       // filter the sources to compose the sources list
       const sourcesURLs = data
@@ -128,11 +127,17 @@ const EviaConversation: FC = () => {
         .slice(0, 3)
 
       // compose the sources list
-      const sources = sourcesURLs.map<Source>((url, index) => ({
-        url,
-        image: "/placeholder.jpg",
-        title: url.replace(/(^\w+:|^)\/\//, "").replace(/\/.+$/, ""),
-      }))
+      const sources = sourcesURLs.map<Source>((url, index) => {
+        const domain = url.replace(/(^\w+:|^)\/\//, "").replace(/\/.+$/, "")
+        let image = "/fonte3.png"
+        if (domain.includes("poli")) image = "/fonte1.png"
+        if (domain.includes("erasmus")) image = "/fonte2.png"
+        return {
+          url,
+          image,
+          title: domain,
+        }
+      })
 
       const newConversation = {
         ...conversation,
