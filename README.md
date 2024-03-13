@@ -9,7 +9,21 @@ mobilità internazionale. Con l'intento di aiutare gli studenti in procinto di
 partire o appena arrivati, abbiamo identificato diverse problematiche durante il
 processo, in particolar modo quelle riguardanti la raccolta delle informazioni,
 la scelta dei corsi convalidabili, la ricerca dell'alloggio, i rapporti
-sociali, ecc.
+sociali, ecc. e abbiamo sviluppato un prototipo di un assistente virtuale che aiutasse
+nella risoluzione delle criticità riscontrate.
+
+
+## Membri del gruppo
+* [Andrea Gollo](https://github.com/GolAndrea)
+* [Francesco Martellosio](https://github.com/FrancescoMartellosio)
+* [Tommaso Morganti](https://github.com/toto04)
+* [Lorenzo Simone](https://github.com/LorenzoSimone02)
+* [Bin Xu](https://github.com/BinXu123)
+* [Xuwen Ye](https://github.com/xuwenye01)
+
+**Docente** : Maristella Matera
+
+**Valutazione progetto** : 30/30
 
 ## Sito web
 
