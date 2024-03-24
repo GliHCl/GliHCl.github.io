@@ -2,6 +2,8 @@ import styles from "./page.module.scss"
 import { MemberGrid } from "@/components/MemberGrid"
 import { Separator } from "@/components/Separator"
 import { Consegne } from "@/components/Consegne"
+import { IoDocument } from "react-icons/io5"
+import pageStyle from "@/app/page.module.scss"
 import { FeatureCard } from "@/components/FeatureCard"
 import Link from "next/link"
 import { Header } from "@/components/Header"
@@ -37,11 +39,11 @@ export default async function Home() {
               informarti?
             </b>
             <br />
-            Con l&apos;intento di aiutare gli studenti in procinto di partire o
-            appena arrivati, abbiamo identificato diverse problematiche durante
-            il processo, in particolar modo quelle riguardanti la raccolta delle
-            informazioni, la scelta dei corsi convalidabili, la ricerca
-            dell&apos;alloggio, i rapporti sociali, ecc.
+            Scopri eVia, il tuo assistente Erasmus intelligente e interattivo,
+            pronto a guidarti in ogni fase della tua esperienza con risposte
+            immediate, accurate e personalizzate.
+            Immergiti nell'Erasmus senza incertezze: eVia è qui per te 24/7,
+            per trasformare ogni tua domanda in una scoperta!
           </p>
         </div>
         <Link
@@ -49,12 +51,39 @@ export default async function Home() {
             color: "white",
             padding: "16px 32px",
             alignSelf: "center",
+            marginBottom: 16,
             borderRadius: 16,
             backgroundColor: "#008edc",
           }}
           href="/evia"
         >
-          Prova il nostro prototipo HiFi
+          PROVAMI
+        </Link>
+        <Link href={`/consegne/Presentazione%20Finale.pdf`}>
+          <div 
+            className={pageStyle.card}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "100%",
+              margin: 0,
+              padding: 16,
+              borderRadius: 16,
+              cursor: "pointer",
+              color: "#fff",
+            }}
+          >
+            <IoDocument
+              style={{
+                width: 60,
+                height: 60,
+                margin: "0 0 8px 0",
+              }}
+            />
+            <span>{`Presentazione Finale`}</span>
+          </div>
         </Link>
 
         <FeatureCard
