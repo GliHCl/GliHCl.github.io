@@ -42,7 +42,7 @@ export default async function Home() {
             Scopri eVia, il tuo assistente Erasmus intelligente e interattivo,
             pronto a guidarti in ogni fase della tua esperienza con risposte
             immediate, accurate e personalizzate.
-            Immergiti nell'Erasmus senza incertezze: eVia è qui per te 24/7,
+            Immergiti nell&apos;Erasmus senza incertezze: eVia è qui per te 24/7,
             per trasformare ogni tua domanda in una scoperta!
           </p>
         </div>
